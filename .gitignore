@@ -1,5 +1,7 @@
 build/
 node_modules/
 .idea/
+.gradle/
+
 *.iml
 *.idr

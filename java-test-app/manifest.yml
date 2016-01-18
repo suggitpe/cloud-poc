@@ -1,0 +1,5 @@
+---
+applications:
+- name: greeting-service
+  memory: 32M
+  host: suggs-service

@@ -1,6 +1,6 @@
 ---
 applications:
-- name: suggs-client
+- name: greeting-consumer
   command: node hello-world.js
   instances: 1
   memory: 32M

@@ -36,9 +36,9 @@ dependencies{
     	    'org.springframework.boot:spring-boot-starter-thymeleaf',
             'org.springframework.boot:spring-boot-starter-security'
     runtime 'com.h2database:h2'
-    testCompile 'org.springframework.boot:spring-boot-starter-test'
-            //'org.springframework.security:spring-security-test',
-            //'org.seleniumhq.selenium:selenium-java:2.45.0'
+    testCompile 'org.springframework.boot:spring-boot-starter-test',
+            'org.springframework.security:spring-security-test',
+            'org.seleniumhq.selenium:selenium-java:2.45.0'
 }
 
 task wrapper(type: Wrapper){

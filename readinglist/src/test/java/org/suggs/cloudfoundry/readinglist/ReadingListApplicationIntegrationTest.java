@@ -12,6 +12,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.context.WebApplicationContext;
 
 import static org.hamcrest.Matchers.*;
+import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -34,7 +35,8 @@ public class ReadingListApplicationIntegrationTest {
 
     @Before
     public void onSetup() {
-        mockMvc = webAppContextSetup(webContext).build();
+        mockMvc = webAppContextSetup(webContext)
+                .build();
     }
 
     @Test

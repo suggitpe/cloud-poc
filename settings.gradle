@@ -1,0 +1,5 @@
+include 'eurekaserver',
+        'eurekaclient',
+        'java-test-app',
+        'readinglist',
+        'node-test-app'

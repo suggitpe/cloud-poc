@@ -1,7 +1,0 @@
----
-applications:
-- name: simple-java-service-consumer
-  memory: 256M
-  host: suggs-service
-  instances: 1
-  path: build/libs/simple-java-service-consumer-0.0.1.jar

@@ -15,7 +15,7 @@ apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
 jar{
-    baseName = 'simple-java-service-consumer'
+    baseName = 'simple-java-consumer'
     version = '0.0.1-SNAPSHOT'
 }
 

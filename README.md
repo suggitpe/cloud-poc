@@ -18,3 +18,6 @@ This is a java service that when employed will envoke the services of the simple
 All parts of this project work with Gradle.  The basic operation for them all is
 1. Build with `gradle`
 2. Execute with `java -jar build/libs/<name>.jar`
+
+## Docker container cleanup
+docker rm `docker ps --no-trunc -aq`

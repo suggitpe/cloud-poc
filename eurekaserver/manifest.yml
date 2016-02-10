@@ -1,0 +1,7 @@
+---
+applications:
+- name: eureka-service
+  instances: 1
+  memory: 512M
+  path: build/libs/eurekaserver-0.0.1-SNAPSHOT.jar
+  host: discovery-service-suggs

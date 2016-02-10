@@ -21,3 +21,8 @@ All parts of this project work with Gradle.  The basic operation for them all is
 
 ## Docker container cleanup
 docker rm `docker ps --no-trunc -aq`
+
+## Usefull cloudfoundry calls
+* `cf delete-orphaned-routes`
+* `cf delete app-name`
+* `cf delete-service service-name`

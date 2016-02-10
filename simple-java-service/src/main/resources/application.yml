@@ -9,8 +9,4 @@ server:
 ---
 spring:
   profiles: cloud
-eureka:
-  instance:
-    hostname: ${APPLICATION_DOMAIN}
-    nonSecurePort: 80
 

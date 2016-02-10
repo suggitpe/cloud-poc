@@ -1,0 +1,21 @@
+name-server:
+  build:
+    eurekaserver
+  ports:
+    - "8761:8761"
+  net:
+    "host"
+simple-service:
+  build:
+    simple-java-service
+  ports:
+    - "8901:8901"
+  net:
+    "host"
+simple-consumer:
+  build:
+    simple-java-consumer
+  ports:
+    - "8902:8902"
+  net:
+    "host"

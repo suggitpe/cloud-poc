@@ -26,3 +26,4 @@ docker rm `docker ps --no-trunc -aq`
 * `cf delete-orphaned-routes`
 * `cf delete app-name`
 * `cf delete-service service-name`
+* `cf logs service-name --recent`

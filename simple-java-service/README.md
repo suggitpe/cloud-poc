@@ -14,3 +14,4 @@ grad
 ## Cloudfoundry
 
 * `cf push`
+* `cf logs simple-service --recent`

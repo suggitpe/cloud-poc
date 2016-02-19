@@ -19,8 +19,9 @@ All parts of this project work with Gradle.  The basic operation for them all is
 1. Build with `gradle`
 2. Execute with `java -jar build/libs/<name>.jar`
 
-## Docker container cleanup
-docker rm `docker ps --no-trunc -aq`
+## Docker container management
+docker rm `docker ps --no-trunc -aq` # to delete all containers
+docker kill `docker ps -q` # to stop all running containers
 
 ## Usefull cloudfoundry calls
 * `cf delete-orphaned-routes`

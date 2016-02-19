@@ -1,8 +1,7 @@
 ---
 applications:
-- name: greeting-consumer
-  command: node hello-world.js
+- name: greeter
+  command: greeter.js
   instances: 1
   memory: 32M
-  host: suggs-client
-  services: [ suggs-service ]
+  host: greeter-suggs

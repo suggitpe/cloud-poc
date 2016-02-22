@@ -1,7 +1,7 @@
 ---
 applications:
 - name: greeter
-  command: greeter.js
+  command: node greeter.js
   instances: 1
   memory: 32M
   host: greeter-suggs

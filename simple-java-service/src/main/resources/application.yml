@@ -15,3 +15,10 @@ eureka:
     hostname: ${vcap.application.uris[0]}
     nonSecurePort: 80
 
+---
+spring:
+  profiles: docker
+eureka:
+  instance:
+    hostname: simple-java-service
+    nonSecurePort: 80

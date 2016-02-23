@@ -3,14 +3,16 @@ version: '2'
 services:
   name-server:
       build: ./eurekaserver
+      network_mode: host
       ports:
         - 8761:8761
   simple-service:
       build: ./simple-java-service
+      network_mode: host
       ports:
         - 8901:8901
   simple-consumer:
       build: ./simple-java-consumer
+      network_mode: host
       ports:
         - 8902:8902
-

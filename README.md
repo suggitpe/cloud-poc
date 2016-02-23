@@ -21,7 +21,11 @@ All parts of this project work with Gradle.  The basic operation for them all is
 
 ## Docker container management
 docker rm `docker ps --no-trunc -aq` # to delete all containers
-docker kill `docker ps -q` # to stop all running containers
+docker stop `docker ps -q` # to stop all running containers
+
+## Docker-compose options
+* `docker-compose up -d` to start the docker container in daemon mode
+* `docker-compose down` to stop and remove all the containers
 
 ## Usefull cloudfoundry calls
 * `cf delete-orphaned-routes`

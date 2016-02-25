@@ -1,0 +1,9 @@
+---
+applications:
+- name: simple-nodejs-consumer
+  command: node simple-nodejs-consumer.js
+  instances: 1
+  memory: 32M
+  buildpack: nodejs_buildpack
+  host: simple-node-consumer-suggs
+  services: [eureka-service]

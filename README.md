@@ -20,8 +20,9 @@ All parts of this project work with Gradle.  The basic operation for them all is
 2. Execute with `java -jar build/libs/<name>.jar`
 
 ## Docker container management
-docker rm `docker ps --no-trunc -aq` # to delete all containers
-docker stop `docker ps -q` # to stop all running containers
+* docker rm `docker ps --no-trunc -aq` # to delete all containers
+* docker stop `docker ps -q` # to stop all running containers
+* `docker attach [container name]` to get a command line on the running container
 
 ## Docker-compose options
 * `docker-compose up -d` to start the docker container in daemon mode

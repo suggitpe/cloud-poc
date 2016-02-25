@@ -1,0 +1,9 @@
+{
+  "name": "simple-nodejs-consumer",
+  "version": "0.0.1",
+  "description": "Simple node app that consumes data from a restful service",
+  "dependencies": {
+    "express": "*",
+    "cfenv": "*"
+  }
+}

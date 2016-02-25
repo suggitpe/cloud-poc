@@ -2,9 +2,10 @@
 env:
   SPRING_PROFILES_ACTIVE: cloud
 applications:
-- name: simple-service
+- name: simple-java-service
   memory: 512M
-  host: simple-service-suggs
+  host: simple-java-service-suggs
   instances: 1
-  path: build/libs/simple-java-service-0.0.1-SNAPSHOT.jar
+  buildpack: java_buildpack
+  path: build/libs/simple-java-service-0.0.1.jar
   services: [eureka-service]

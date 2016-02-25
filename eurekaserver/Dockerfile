@@ -1,7 +1,7 @@
-FROM java:8
+FROM suggitpe/centos7-orajava8-base
 VOLUME /tmp
 VOLUME /target
-ADD build/libs/eurekaserver-0.0.1.jar app.jar
+ADD build/libs/eurekaserver-*.jar app.jar
 RUN bash -c 'touch /app.jar'
 EXPOSE 8761
 ENTRYPOINT ["java", "-jar", "/app.jar"]

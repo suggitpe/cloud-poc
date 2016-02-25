@@ -1,5 +1,6 @@
 include 'eurekaserver',
         'simple-java-service',
         'simple-java-consumer',
+        'simple-nodejs-consumer',
         'readinglist',
         'node-test-app'

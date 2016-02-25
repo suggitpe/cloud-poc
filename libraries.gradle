@@ -1,0 +1,17 @@
+ext{
+    libs = [
+            eurekaStarter: 'org.springframework.cloud:spring-cloud-starter-eureka-server:1.0.6.RELEASE',
+            springBootStarter: 'org.springframework.boot:spring-boot-starter-web',
+            springBootDataStarter: 'org.springframework.boot:spring-boot-starter-data-jpa',
+            springBootThymeLeafStarter: 'org.springframework.boot:spring-boot-starter-thymeleaf',
+            springBootSecurityStarter: 'org.springframework.boot:spring-boot-starter-security',
+
+            h2db: 'com.h2database:h2',
+            test: [
+                    junit: 'junit:junit',
+                    springBootTestStarter: 'org.springframework.boot:spring-boot-starter-test',
+                    springBootSecurityTestStarter: 'org.springframework.security:spring-security-test',
+                    selenium: 'org.seleniumhq.selenium:selenium-java:2.45.0'
+            ]
+    ]
+}

@@ -7,7 +7,8 @@ jar{
 }
 
 dependencies{
-    compile 'org.springframework.boot:spring-boot-starter-web',
-            'org.springframework.cloud:spring-cloud-starter-eureka-server:1.0.6.RELEASE'
-    testCompile 'junit:junit'
+    compile libs.springBootStarter,
+            libs.eurekaStarter
+
+    testCompile libs.test.junit
 }

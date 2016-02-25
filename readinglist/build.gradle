@@ -7,12 +7,14 @@ jar{
 }
 
 dependencies{
-    compile 'org.springframework.boot:spring-boot-starter-web',
-    	    'org.springframework.boot:spring-boot-starter-data-jpa',
-    	    'org.springframework.boot:spring-boot-starter-thymeleaf',
-            'org.springframework.boot:spring-boot-starter-security'
-    runtime 'com.h2database:h2'
-    testCompile 'org.springframework.boot:spring-boot-starter-test',
-            'org.springframework.security:spring-security-test',
-            'org.seleniumhq.selenium:selenium-java:2.45.0'
+    compile libs.springBootStarter,
+            libs.springBootDataStarter,
+    	    libs.springBootThymeLeafStarter,
+            libs.springBootSecurityStarter
+
+    runtime libs.h2db
+
+    testCompile libs.test.springBootTestStarter,
+            libs.test.springBootSecurityTestStarter,
+            libs.test.selenium
 }

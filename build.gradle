@@ -13,6 +13,7 @@ allprojects{ projects ->
     }
 
     apply plugin: 'idea'
+    apply from: "$rootDir/libraries.gradle"
 
     repositories{
         jcenter()

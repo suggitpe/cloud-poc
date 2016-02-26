@@ -11,6 +11,3 @@ dependencies{
     compile libs.eurekaStarter
 }
 
-task wrapper(type: Wrapper){
-    gradleVersion = '2.10'
-}

@@ -11,3 +11,14 @@ dependencies{
     compile libs.eurekaStarter
 }
 
+cloudfoundry {
+  target = cfTarget
+  space = cfSpace
+  file = jar.archivePath
+  application = "discovery-service"
+  host = "discovery-service-suggs"
+  buildpack = "java_buildpack"
+  memory = 512
+  instances = 1
+  env = [ "SPRING_PROFILES_ACTIVE": "cloud" ]
+}

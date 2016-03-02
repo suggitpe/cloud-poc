@@ -1,5 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'spring-boot'
+apply plugin: 'cloudfoundry'
 
 jar{
     baseName = 'simple-java-consumer'
@@ -11,4 +12,16 @@ dependencies{
             libs.eurekaStarter
 
     testCompile libs.test.junit
+}
+
+cloudfoundry {
+    target = cfTarget
+    space = cfSpace
+    file = jar.archivePath
+    application = "simple-java-consumer"
+    host = "simple-java-consumer-suggs"
+    buildpack = "java_buildpack"
+    memory = 512
+    instances = 1
+    env = [ "SPRING_PROFILES_ACTIVE": "cloud" ]
 }

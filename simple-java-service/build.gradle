@@ -19,10 +19,16 @@ cloudfoundry {
     space = cfSpace
     file = jar.archivePath
     application = "simple-java-service"
-    host = "simple-java-service-suggs"
+    host = "simple-java-service-${randomWord}"
     buildpack = "java_buildpack"
     memory = 512
     instances = 1
     env = [ "SPRING_PROFILES_ACTIVE": "cloud" ]
+    services {
+        'discovery-service'{
+            label = 'user-provided'
+            bind = true
+        }
+    }
 }
 

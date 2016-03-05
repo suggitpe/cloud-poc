@@ -3,9 +3,9 @@ env:
   SPRING_PROFILES_ACTIVE: cloud
 applications:
 - name: simple-java-consumer
-  memory: 512M
   host: simple-java-consumer-suggs
+  memory: 512M
   instances: 1
   buildpack: java_buildpack
   path: build/libs/simple-java-consumer-0.0.1.jar
-  services: [eureka-service]
+  services: [discovery-service]

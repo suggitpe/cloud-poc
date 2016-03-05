@@ -1,6 +1,9 @@
 allprojects{ projects ->
     defaultTasks 'clean', 'build'
 
+    apply plugin: 'idea'
+    apply from: "$rootDir/libraries.gradle"
+
     buildscript {
         repositories {
             jcenter()
@@ -11,9 +14,6 @@ allprojects{ projects ->
                     'org.cloudfoundry:cf-gradle-plugin:1.1.3'
         }
     }
-
-    apply plugin: 'idea'
-    apply from: "$rootDir/libraries.gradle"
 
     repositories{
         jcenter()

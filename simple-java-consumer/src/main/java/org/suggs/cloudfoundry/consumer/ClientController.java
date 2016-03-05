@@ -27,7 +27,7 @@ public class ClientController {
     }
 
     private String buildRestUrl(String personName) {
-        return "http://" + greetingService + "/?name=" + personName;
+        return "http://" + greetingService + "greeting/?name=" + personName;
     }
 
 }

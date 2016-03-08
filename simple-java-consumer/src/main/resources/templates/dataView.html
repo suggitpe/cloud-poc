@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Data view</title>
+    <link rel="stylesheet" type="text/css" th:href="@{css/style.css}"></link>
+</head>
+
+<body>
+
+<h2>Data View</h2>
+
+<div th:if="data ne null">
+    <dl>
+        <dt class="headline">
+            <span th:text="${data.content}">Name</span> with an id of <span th:text="${id}">ID</span>
+        </dt>
+    </dl>
+
+</div>
+
+<div th:if="data eq null">
+    <p>We could not find any data with an id of <span th:text="${id}">ID</span></p>
+</div>
+
+</body>
+</html>

@@ -9,7 +9,8 @@ jar{
 
 dependencies{
     compile libs.springBootStarter,
-            libs.eurekaStarter
+            libs.eurekaStarter,
+            libs.springBootThymeLeafStarter
 
     testCompile libs.test.junit
 }

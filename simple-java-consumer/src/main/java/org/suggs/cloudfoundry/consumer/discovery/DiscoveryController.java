@@ -1,4 +1,4 @@
-package org.suggs.cloudfoundry.consumer;
+package org.suggs.cloudfoundry.consumer.discovery;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;

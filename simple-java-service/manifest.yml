@@ -4,8 +4,5 @@ applications:
   host: simple-java-service-suggs
   memory: 512M
   instances: 1
-  buildpack: java_buildpack
   path: build/libs/simple-java-service-0.0.1.jar
   services: [discovery-service]
-  env:
-    SPRING_PROFILES_ACTIVE: cloud

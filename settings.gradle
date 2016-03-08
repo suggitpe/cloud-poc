@@ -1,5 +1,5 @@
 include 'eurekaserver',
-        'simple-java-service',
+        'simple-java-producer',
         'simple-java-consumer',
         'simple-nodejs-consumer',
         'readinglist',

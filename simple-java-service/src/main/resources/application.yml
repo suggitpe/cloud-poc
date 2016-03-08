@@ -20,5 +20,5 @@ spring:
   profiles: docker
 eureka:
   instance:
-    hostname: simple-java-service
+    hostname: simple-java-producer
     nonSecurePort: 80

@@ -20,7 +20,7 @@ public class ClientController {
     private RestTemplate restTemplate;
 
     // rest template will resolve the location 'magically'
-    private String greetingService = "simple-java-service";
+    private String greetingService = "simple-java-producer";
 
     @RequestMapping(value = "/greeting/{personName}", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody

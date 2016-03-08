@@ -3,7 +3,7 @@ apply plugin: 'spring-boot'
 apply plugin: 'cloudfoundry'
 
 jar{
-    baseName = 'simple-java-service'
+    baseName = 'simple-java-producer'
     version = '0.0.1'
 }
 
@@ -18,8 +18,8 @@ cloudfoundry {
     target = cfTarget
     space = cfSpace
     file = jar.archivePath
-    application = "simple-java-service"
-    host = "simple-java-service-${randomWord}"
+    application = "simple-java-producer"
+    host = "simple-java-producer-${randomWord}"
     buildpack = "java_buildpack"
     memory = 512
     instances = 1

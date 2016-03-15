@@ -12,6 +12,8 @@ dependencies{
             libs.eurekaStarter
 
     testCompile libs.test.junit
+
+    testRuntime project(':eurekaserver')
 }
 
 cloudfoundry {

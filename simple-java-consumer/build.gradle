@@ -13,6 +13,9 @@ dependencies{
             libs.springBootThymeLeafStarter
 
     testCompile libs.test.junit
+
+    testRuntime project(':eurekaserver'),
+            project(':simple-java-producer')
 }
 
 cloudfoundry {

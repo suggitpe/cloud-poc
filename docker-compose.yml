@@ -1,23 +1,23 @@
 version: '2'
 
 services:
-  name-server:
+  discovery-service:
       build: ./eurekaserver
       network_mode: host
       ports:
         - 8761:8761
-  simple-producer:
+  simple-java-producer:
       build: ./simple-java-producer
       network_mode: host
       ports:
         - 8901:8901
   simple-java-consumer:
-      build: ./simple-java-consumer
+      build: ./simple-java-greeting
       network_mode: host
       ports:
         - 8902:8902
   simple-nodejs-consumer:
-      build: ./simple-nodejs-consumer
+      build: ./simple-nodejs-greeting
       network_mode: host
       ports:
         - 8903:8903

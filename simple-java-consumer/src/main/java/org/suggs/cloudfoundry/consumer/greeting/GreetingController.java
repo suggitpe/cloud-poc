@@ -1,4 +1,4 @@
-package org.suggs.cloudfoundry.consumer.consumer;
+package org.suggs.cloudfoundry.consumer.greeting;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
 @Controller
-public class ClientController {
+public class GreetingController {
 
-    private static final Logger LOG = LoggerFactory.getLogger(ClientController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(GreetingController.class);
 
     @Autowired
     private RestTemplate restTemplate;
@@ -31,8 +31,8 @@ public class ClientController {
     @RequestMapping(value = "/greeting/{personName}", method = RequestMethod.GET)
     public String getGreetingDataAsWebPage(@PathVariable String personName, Model model) {
         model.addAttribute("data", executeRestCallFor(personName));
-        model.addAttribute("id", personName);
-        return "dataView";
+        model.addAttribute("name", personName);
+        return "greetingDataView";
     }
 
     private Greeting executeRestCallFor(String personName) {

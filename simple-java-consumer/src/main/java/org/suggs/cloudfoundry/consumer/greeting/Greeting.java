@@ -1,4 +1,4 @@
-package org.suggs.cloudfoundry.consumer.consumer;
+package org.suggs.cloudfoundry.consumer.greeting;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 

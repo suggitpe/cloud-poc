@@ -11,14 +11,14 @@
 <div th:if="data ne null">
     <dl>
         <dt class="headline">
-            <span th:text="${data.content}">Name</span> with an id of <span th:text="${id}">ID</span>
+            <span th:text="${data.content}">Name</span> with an id of <span th:text="${name}">ID</span>
         </dt>
     </dl>
 
 </div>
 
 <div th:if="data eq null">
-    <p>We could not find any data with an id of <span th:text="${id}">ID</span></p>
+    <p>We could not find any greetings for <span th:text="${name}">name</span></p>
 </div>
 
 </body>

@@ -1,7 +1,7 @@
 ---
 applications:
 - name: simple-java-producer
-  host: simple-java-producer-suggs
+  host: simple-java-producer-${randomWord}
   memory: 512M
   instances: 1
   path: build/libs/simple-java-producer-0.0.1.jar

@@ -11,10 +11,9 @@
 <div th:if="data ne null">
     <dl>
         <dt class="headline">
-            Message "<span th:text="${data.content}">Content</span>" for someone with the name of <span th:text="${name}">ID</span>
+            Message "<span th:text="${data.content}">Content</span>" for someone with the name of "<span th:text="${name}">ID</span>"
         </dt>
     </dl>
-
 </div>
 
 <div th:if="data eq null">

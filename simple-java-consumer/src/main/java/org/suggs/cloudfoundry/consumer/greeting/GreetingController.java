@@ -25,17 +25,17 @@ public class GreetingController {
     @RequestMapping(value = "/greeting/{personName}", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public Greeting getGreetingDataAsJson(@PathVariable String personName) {
-        return executeRestCallFor(personName);
+        return executeGreetingRestCallFor(personName);
     }
 
     @RequestMapping(value = "/greeting/{personName}", method = RequestMethod.GET)
     public String getGreetingDataAsWebPage(@PathVariable String personName, Model model) {
-        model.addAttribute("data", executeRestCallFor(personName));
+        model.addAttribute("data", executeGreetingRestCallFor(personName));
         model.addAttribute("name", personName);
         return "greetingDataView";
     }
 
-    private Greeting executeRestCallFor(String personName) {
+    private Greeting executeGreetingRestCallFor(String personName) {
         return restTemplate.getForObject(buildRestUrl(personName), Greeting.class);
     }
 

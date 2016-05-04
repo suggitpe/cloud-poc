@@ -1,3 +1,4 @@
+
 # define the name of the application as its registered with eureka
 spring:
   application:

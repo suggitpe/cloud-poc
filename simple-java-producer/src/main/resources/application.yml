@@ -8,7 +8,7 @@ server:
 
 ---
 spring:
-# when the cloud profile is activated then we need to tell eurek our route
+# when the cloud profile is activated then we need to tell eureka our route
   profiles: cloud
 eureka:
   instance:

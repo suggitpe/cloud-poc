@@ -1,6 +1,6 @@
 package org.suggs.cloudfoundry.consumer.greeting;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 class Greeting {

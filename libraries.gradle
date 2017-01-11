@@ -1,6 +1,6 @@
 ext{
     libs = [
-            eurekaStarter: 'org.springframework.cloud:spring-cloud-starter-eureka-server:1.0.6.RELEASE',
+            eurekaStarter: 'org.springframework.cloud:spring-cloud-starter-eureka-server:1.2.3.RELEASE',
             springBootStarter: 'org.springframework.boot:spring-boot-starter-web',
             springBootDataStarter: 'org.springframework.boot:spring-boot-starter-data-jpa',
             springBootThymeLeafStarter: 'org.springframework.boot:spring-boot-starter-thymeleaf',

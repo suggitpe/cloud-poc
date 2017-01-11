@@ -14,7 +14,7 @@ dependencies{
 
     testCompile libs.test.junit
 
-    testRuntime project(':eurekaserver'),
+    testRuntime project(':discoveryservice'),
             project(':simple-java-producer')
 }
 

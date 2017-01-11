@@ -1,4 +1,4 @@
-include 'eurekaserver',
+include 'discoveryservice',
         'simple-java-producer',
         'simple-java-consumer',
         'simple-nodejs-consumer',

@@ -13,7 +13,7 @@ dependencies{
 
     testCompile libs.test.junit
 
-    testRuntime project(':eurekaserver')
+    testRuntime project(':discoveryservice')
 }
 
 cloudfoundry {

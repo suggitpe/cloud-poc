@@ -16,9 +16,3 @@ services:
       network_mode: host
       ports:
         - 8902:8902
-  simple-nodejs-consumer:
-      build: ./simple-nodejs-consumer
-      network_mode: host
-      ports:
-        - 8903:8903
-

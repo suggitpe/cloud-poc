@@ -10,7 +10,7 @@ allprojects{ projects ->
             mavenCentral()
         }
         dependencies {
-            classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.4.3.RELEASE',
+            classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.5.9.RELEASE',
                     'org.cloudfoundry:cf-gradle-plugin:1.1.3'
         }
     }
@@ -23,9 +23,5 @@ allprojects{ projects ->
     ext{
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
-    }
-
-    idea.module {
-        downloadSources = true
     }
 }

@@ -1,6 +1,4 @@
 include 'discoveryservice',
         'simple-java-producer',
         'simple-java-consumer',
-        'simple-nodejs-consumer',
-        'readinglist',
-        'node-test-app'
+        'simple-nodejs-consumer'

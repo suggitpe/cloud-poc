@@ -1,0 +1,24 @@
+# define the location of the eureka server
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${vcap.services.discovery-service.credentials.uri:http://localhost:8761}/eureka/
+server:
+  port: 8901
+
+---
+spring:
+# when the cloud profile is activated then we need to tell eureka our route
+  profiles: cloud
+eureka:
+  instance:
+    hostname: ${vcap.application.uris[0]}
+    nonSecurePort: 80
+
+---
+spring:
+  profiles: docker
+eureka:
+  instance:
+    hostname: simple-java-producer
+    nonSecurePort: 80

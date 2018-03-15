@@ -10,9 +10,10 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class Application {
+public class Consumer {
+
     public static void main(String[] args) {
-        new SpringApplicationBuilder(Application.class)
+        new SpringApplicationBuilder(Consumer.class)
                 .web(true)
                 .run(args);
     }

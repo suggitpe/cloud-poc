@@ -1,6 +1,5 @@
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
-apply plugin: 'cloudfoundry'
 
 jar{
     baseName = 'simple-java-consumer'
@@ -16,22 +15,4 @@ dependencies{
 
     testRuntime project(':discoveryservice'),
             project(':simple-java-producer')
-}
-
-cloudfoundry {
-    target = cfTarget
-    space = cfSpace
-    file = jar.archivePath
-    application = "simple-java-consumer"
-    host = "simple-java-consumer-${randomWord}"
-    buildpack = "java_buildpack"
-    memory = 512
-    instances = 1
-    env = [ "SPRING_PROFILES_ACTIVE": "cloud" ]
-    services {
-        'discovery-service'{
-            label = 'user-provided'
-            bind = true
-        }
-    }
 }

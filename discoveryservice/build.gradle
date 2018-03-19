@@ -1,6 +1,5 @@
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
-apply plugin: 'cloudfoundry'
 
 jar{
     baseName = 'eurekaserver'
@@ -9,25 +8,4 @@ jar{
 
 dependencies{
     compile libs.eurekaStarter
-}
-
-cloudfoundry {
-  target = cfTarget
-  space = cfSpace
-  file = jar.archivePath
-  application = "eureka-service"
-  host = "eureka-service-suggs"
-  buildpack = "java_buildpack"
-  memory = 512
-  instances = 1
-  env = [ "SPRING_PROFILES_ACTIVE": "cloud" ]
-  services {
-      'discovery-service'{
-          label = 'user-provided'
-          userProvidedCredentials = [
-            'uri': 'http://eureka-service-suggs.cfapps.io/'
-          ]
-          bind = false
-      }
-  }
 }

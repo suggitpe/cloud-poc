@@ -1,16 +1,20 @@
 ext{
+
+    springBootVersion = '1.5.10.RELEASE'
+
     libs = [
-            eurekaStarter: 'org.springframework.cloud:spring-cloud-starter-eureka-server:1.4.2.RELEASE',
-            springBootStarter: 'org.springframework.boot:spring-boot-starter-web',
-            springBootDataStarter: 'org.springframework.boot:spring-boot-starter-data-jpa',
-            springBootThymeLeafStarter: 'org.springframework.boot:spring-boot-starter-thymeleaf',
-            springBootSecurityStarter: 'org.springframework.boot:spring-boot-starter-security',
+            eurekaStarter: 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:1.4.3.RELEASE',
+            springBootStarter: "org.springframework.boot:spring-boot-starter-web:$springBootVersion",
+            springBootDataStarter: "org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion",
+            springBootThymeLeafStarter: "org.springframework.boot:spring-boot-starter-thymeleaf:$springBootVersion",
+            springBootSecurityStarter: "org.springframework.boot:spring-boot-starter-security:$springBootVersion",
 
             h2db: 'com.h2database:h2',
+
             test: [
-                    junit: 'junit:junit',
-                    springBootTestStarter: 'org.springframework.boot:spring-boot-starter-test',
-                    springBootSecurityTestStarter: 'org.springframework.security:spring-security-test',
+                    junit: 'junit:junit:4.12',
+                    springBootTestStarter: "org.springframework.boot:spring-boot-starter-test:$springBootVersion",
+                    springBootSecurityTestStarter: "org.springframework.security:spring-security-test:$springBootVersion",
                     selenium: 'org.seleniumhq.selenium:selenium-java:2.45.0'
             ]
     ]

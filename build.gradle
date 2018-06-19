@@ -1,26 +1,31 @@
-allprojects{ projects ->
+allprojects {
     defaultTasks 'clean', 'build'
-
-    apply plugin: 'idea'
-    apply plugin: 'java'
     apply from: "$rootDir/dependencies.gradle"
+}
+
+subprojects {
+    
+    apply plugin: 'java'
 
     buildscript {
+        ext {
+            springBootVersion = '2.0.3.RELEASE'
+        }
         repositories {
             jcenter()
             mavenCentral()
         }
         dependencies {
-            classpath 'org.springframework.boot:spring-boot-gradle-plugin:2.0.3.RELEASE'
+            classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
         }
     }
 
-    repositories{
+    repositories {
         jcenter()
         mavenCentral()
     }
 
-    dependencies{
+    dependencies {
 
         testCompile libs.test.junit,
                 libs.test.selenium,
@@ -31,7 +36,7 @@ allprojects{ projects ->
                 libs.test.serenityCucumber
     }
 
-    ext{
+    ext {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
     }

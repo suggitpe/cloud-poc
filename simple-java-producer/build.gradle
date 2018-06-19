@@ -1,13 +1,13 @@
 apply plugin: 'org.springframework.boot'
 
-jar{
+bootJar{
     baseName = 'simple-java-producer'
     version = '0.0.1'
 }
 
 dependencies{
     compile libs.springBootStarter,
-            libs.eurekaStarter
+            libs.eurekaClient
 
     testRuntime project(':discoveryservice')
 }

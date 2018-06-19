@@ -4,7 +4,8 @@ ext {
     serenityVersion = '1.9.22'
 
     libs = [
-            eurekaStarter             : 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:1.4.4.RELEASE',
+            eurekaServer              : 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:1.4.4.RELEASE',
+            eurekaClient              : 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:1.4.4.RELEASE',
             springBootStarter         : "org.springframework.boot:spring-boot-starter-web:$springBootVersion",
             springBootDataStarter     : "org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion",
             springBootThymeLeafStarter: "org.springframework.boot:spring-boot-starter-thymeleaf:$springBootVersion",

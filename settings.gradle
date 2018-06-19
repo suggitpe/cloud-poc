@@ -1,4 +1,3 @@
 include 'discoveryservice',
         'simple-java-producer',
-        'simple-java-consumer',
-        'simple-nodejs-consumer'
+        'simple-java-consumer'

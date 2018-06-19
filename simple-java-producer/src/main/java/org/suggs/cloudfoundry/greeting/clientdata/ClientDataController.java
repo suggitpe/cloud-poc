@@ -1,6 +1,7 @@
 package org.suggs.cloudfoundry.greeting.clientdata;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,7 +21,7 @@ public class ClientDataController {
         mapOfClientData.put(3L, new ClientData(3L, "Baz", "shhhh", "New York"));
     }
 
-    @RequestMapping("/clientData")
+    @RequestMapping(value = "/clientData", method = RequestMethod.GET, produces = "application/json")
     public ClientData getClientDataFor(@RequestParam(value = "id") long id) {
         return mapOfClientData.get(id);
     }

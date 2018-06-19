@@ -2,7 +2,7 @@ allprojects{ projects ->
     defaultTasks 'clean', 'build'
 
     apply plugin: 'idea'
-    apply from: "$rootDir/libraries.gradle"
+    apply from: "$rootDir/dependencies.gradle"
 
     buildscript {
         repositories {

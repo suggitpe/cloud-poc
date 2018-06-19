@@ -1,6 +1,5 @@
 package org.suggs.cloudfoundry.consumer;
 
-import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -23,7 +22,7 @@ public class Consumer {
 
     @LoadBalanced
     @Bean
-    public RestTemplate restTemplate(RestTemplateBuilder aBuilder){
+    public RestTemplate restTemplate(RestTemplateBuilder aBuilder) {
         return aBuilder.build();
     }
 }

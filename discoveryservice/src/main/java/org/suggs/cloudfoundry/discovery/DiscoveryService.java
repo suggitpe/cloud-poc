@@ -1,15 +1,17 @@
-package org.suggs.cloudfoundry.eurekaserver;
+package org.suggs.cloudfoundry.discovery;
 
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
-@EnableEurekaServer
+
 @SpringBootApplication
-public class EurekaServer {
+@EnableEurekaServer
+public class DiscoveryService {
     public static void main(String[] args) {
-        new SpringApplicationBuilder(EurekaServer.class)
-                .web(true)
+        new SpringApplicationBuilder(DiscoveryService.class)
+                .web(WebApplicationType.SERVLET)
                 .run(args);
     }
 }

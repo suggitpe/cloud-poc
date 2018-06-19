@@ -1,4 +1,4 @@
-FROM dockerbase_centos
+FROM suggitpe/18.04-orajava8-base
 VOLUME /tmp
 VOLUME /target
 ENV JAVA_OPTS -Dspring.profiles.active=docker

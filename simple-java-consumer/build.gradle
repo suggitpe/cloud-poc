@@ -8,7 +8,8 @@ bootJar{
 dependencies{
     compile libs.springBootStarter,
             libs.eurekaClient,
-            libs.springBootThymeLeafStarter
+            libs.springBootThymeLeafStarter,
+            libs.gson
 
     testRuntime project(':discoveryservice'),
             project(':simple-java-producer')

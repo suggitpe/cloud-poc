@@ -1,10 +1,12 @@
 apply plugin: 'org.springframework.boot'
 
-bootJar{
+bootJar {
     baseName = 'discoveryservice'
     version = '0.0.1'
 }
 
-dependencies{
-    compile libs.eurekaServer
+dependencies {
+    compile libs.springBootStarter,
+            libs.eurekaServer,
+            libs.gson
 }

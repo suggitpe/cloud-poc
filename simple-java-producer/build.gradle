@@ -7,7 +7,8 @@ bootJar{
 
 dependencies{
     compile libs.springBootStarter,
-            libs.eurekaClient
+            libs.eurekaClient,
+            libs.gson
 
     testRuntime project(':discoveryservice')
 }

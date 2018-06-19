@@ -1,4 +1,3 @@
-apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
 
 jar{
@@ -9,8 +8,6 @@ jar{
 dependencies{
     compile libs.springBootStarter,
             libs.eurekaStarter
-
-    testCompile libs.test.junit
 
     testRuntime project(':discoveryservice')
 }

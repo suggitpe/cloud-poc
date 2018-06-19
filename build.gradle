@@ -2,6 +2,7 @@ allprojects{ projects ->
     defaultTasks 'clean', 'build'
 
     apply plugin: 'idea'
+    apply plugin: 'java'
     apply from: "$rootDir/dependencies.gradle"
 
     buildscript {
@@ -10,13 +11,24 @@ allprojects{ projects ->
             mavenCentral()
         }
         dependencies {
-            classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.5.10.RELEASE'
+            classpath 'org.springframework.boot:spring-boot-gradle-plugin:2.0.3.RELEASE'
         }
     }
 
     repositories{
         jcenter()
         mavenCentral()
+    }
+
+    dependencies{
+
+        testCompile libs.test.junit,
+                libs.test.selenium,
+                libs.test.serenityCore,
+                libs.test.serenityJunit,
+                libs.test.serenityScreenplay,
+                libs.test.serenityScreenplayRest,
+                libs.test.serenityCucumber
     }
 
     ext{

@@ -2,17 +2,17 @@ version: '2'
 
 services:
   discovery-service:
-      build: ./discoveryservice
+      build: ./discovery-service
       network_mode: host
       ports:
         - 8761:8761
-  simple-java-producer:
-      build: ./simple-java-producer
+  java-producer:
+      build: ./java-producer
       network_mode: host
       ports:
         - 8901:8901
-  simple-java-consumer:
-      build: ./simple-java-consumer
+  java-consumer:
+      build: ./java-consumer
       network_mode: host
       ports:
         - 8902:8902

@@ -12,7 +12,7 @@ This is a super simple implementation of a Eureka Server (Netflix) that is used 
 This is a simple greeting app that when started, looks for a Eureka and registers itself as a service.  It does not have the capability to look up another service.
 
 ### EurekaClient
-This is a java service that when employed will envoke the services of the simple-java-service through the service registry.
+This is a java service that when employed will envoke the services of the java-service through the service registry.
 
 ## How do I use them
 All parts of this project work with Gradle.  The basic operation for them all is

@@ -1,0 +1,16 @@
+apply plugin: 'org.springframework.boot'
+
+bootJar{
+    baseName = 'java-consumer'
+    version = '0.0.1'
+}
+
+dependencies{
+    compile libs.springBootStarter,
+            libs.eurekaClient,
+            libs.springBootThymeLeafStarter,
+            libs.gson
+
+    testRuntime project(':discovery-service'),
+            project(':java-producer')
+}

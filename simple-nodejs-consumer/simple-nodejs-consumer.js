@@ -12,7 +12,7 @@ app.get('/', function(request, response){
 });
 
 var getDiscoveryServiceUri = function(cfenv){
-    return appEnv.getServiceURL("eureka-service") || "localhost:8761";
+    return appEnv.getServiceURL("discovery-service") || "localhost:8761";
 }
 
 app.listen(realPort = process.env.PORT || 8903);

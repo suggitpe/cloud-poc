@@ -1,0 +1,8 @@
+---
+applications:
+- name: java-producer
+  host: java-producer-${randomWord}
+  memory: 512M
+  instances: 1
+  path: build/libs/java-producer-0.0.1.jar
+  services: [discovery-service]

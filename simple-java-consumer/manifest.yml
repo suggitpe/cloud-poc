@@ -1,8 +1,0 @@
----
-applications:
-- name: simple-java-consumer
-  host: simple-java-consumer-suggs
-  memory: 512M
-  instances: 1
-  path: build/libs/simple-java-consumer-0.0.1.jar
-  services: [discovery-service]

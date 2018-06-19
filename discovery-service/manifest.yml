@@ -1,0 +1,8 @@
+---
+applications:
+- name: discovery-service
+  host: discovery-service-suggs
+  buildpack: java
+  instances: 1
+  memory: 512M
+  path: build/libs/discovery-service-0.0.1.jar

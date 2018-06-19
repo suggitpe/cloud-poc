@@ -6,4 +6,4 @@ applications:
   memory: 32M
   buildpack: nodejs_buildpack
   host: simple-node-consumer-suggs
-  services: [eureka-service]
+  services: [discovery-service]

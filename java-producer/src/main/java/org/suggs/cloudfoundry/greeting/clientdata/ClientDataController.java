@@ -1,5 +1,6 @@
 package org.suggs.cloudfoundry.greeting.clientdata;
 
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -7,6 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 
 @RestController
@@ -21,8 +24,10 @@ public class ClientDataController {
         mapOfClientData.put(3L, new ClientData(3L, "Baz", "shhhh", "New York"));
     }
 
-    @RequestMapping(value = "/clientData", method = RequestMethod.GET, produces = "application/json")
+    @ApiOperation(value = "Gets data about clients by ID")
+    @RequestMapping(value = "/clientData", method = GET)
     public ClientData getClientDataFor(@RequestParam(value = "id") long id) {
         return mapOfClientData.get(id);
     }
+
 }

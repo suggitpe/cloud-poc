@@ -6,19 +6,19 @@ eureka:
 server:
   port: 8901
 
----
-spring:
-# when the cloud profile is activated then we need to tell eureka our route
-  profiles: cloud
-eureka:
-  instance:
-    hostname: ${vcap.application.uris[0]}
-    nonSecurePort: 80
-
----
-spring:
-  profiles: docker
-eureka:
-  instance:
-    hostname: java-producer
-    nonSecurePort: 80
+#---
+#spring:
+## when the cloud profile is activated then we need to tell eureka our route
+#  profiles: cloud
+#eureka:
+#  instance:
+#    hostname: ${vcap.application.uris[0]}
+#    nonSecurePort: 80
+#
+#---
+#spring:
+#  profiles: docker
+#eureka:
+#  instance:
+#    hostname: java-producer
+#    nonSecurePort: 80

@@ -1,4 +1,5 @@
 apply plugin: 'org.springframework.boot'
+apply plugin: 'au.com.dius.pact'
 
 bootJar{
     baseName = 'java-consumer'
@@ -9,8 +10,17 @@ dependencies{
     compile libs.springBootStarter,
             libs.eurekaClient,
             libs.springBootThymeLeafStarter,
-            libs.gson
+            libs.gson,
+            libs.swagger,
+            libs.swaggerUI
 
-    testRuntime project(':discovery-service'),
+    testRuntime project(':discovery-service'),  
             project(':java-producer')
+}
+
+pact{
+    publish{
+        pactDirectory = "${buildDir}/pact"
+        pactBrokerUrl = 'http://packbroker:1234'
+    }
 }

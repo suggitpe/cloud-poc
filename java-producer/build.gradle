@@ -8,7 +8,9 @@ bootJar{
 dependencies{
     compile libs.springBootStarter,
             libs.eurekaClient,
-            libs.gson
+            libs.gson,
+            libs.swagger,
+            libs.swaggerUI
 
     testRuntime project(':discovery-service')
 }

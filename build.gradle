@@ -1,39 +1,44 @@
 allprojects {
     defaultTasks 'clean', 'build'
     apply from: "$rootDir/dependencies.gradle"
-}
-
-subprojects {
-    
-    apply plugin: 'java'
 
     buildscript {
         ext {
             springBootVersion = '2.0.3.RELEASE'
+            pactVersion = '3.5.18'
         }
         repositories {
             jcenter()
             mavenCentral()
         }
         dependencies {
-            classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+            classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}",
+                    "au.com.dius:pact-jvm-provider-gradle_2.12:${pactVersion}"
         }
     }
+}
+
+subprojects {
+
 
     repositories {
         jcenter()
         mavenCentral()
     }
 
+    apply plugin: 'java'
+
     dependencies {
 
         testCompile libs.test.junit,
+                libs.test.assertj,
                 libs.test.selenium,
                 libs.test.serenityCore,
                 libs.test.serenityJunit,
                 libs.test.serenityScreenplay,
                 libs.test.serenityScreenplayRest,
-                libs.test.serenityCucumber
+                libs.test.serenityCucumber,
+                libs.test.pactjvm
     }
 
     ext {

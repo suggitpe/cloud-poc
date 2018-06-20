@@ -3,17 +3,19 @@ eureka:
   client:
     serviceUrl:
       defaultZone: ${vcap.services.discovery-service.credentials.uri:http://localhost:8761}/eureka/
+    healthcheck:
+      enabled: true
 server:
   port: 8902
 spring:
   thymeleaf:
     cache: false
 
----
-spring:
-# when the cloud profile is activated then we need to tell eurek our route
-  profiles: cloud
-eureka:
-  instance:
-    hostname: ${vcap.application.uris[0]}
-    nonSecurePort: 80
+#---
+#spring:
+## when the cloud profile is activated then we need to tell eurek our route
+#  profiles: cloud
+#eureka:
+#  instance:
+#    hostname: ${vcap.application.uris[0]}
+#    nonSecurePort: 80

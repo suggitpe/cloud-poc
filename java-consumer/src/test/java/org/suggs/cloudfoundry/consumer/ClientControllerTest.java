@@ -19,38 +19,33 @@ import static com.google.common.io.Resources.getResource;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class GreetingTest {
-
+public class ClientControllerTest {
     @Rule
     public PactProviderRuleMk2 mockProvider = new PactProviderRuleMk2("test_provider", this);
 
-    @Pact(consumer = "test_consumer")
+    @Pact(consumer = "client_consumer")
     public RequestResponsePact createPact(PactDslWithProvider builder) throws IOException {
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
 
         return builder
-                .given("test GET").uponReceiving("Request for a greeting").path("/greeting").method("GET")
-                .willRespondWith().status(200).headers(headers).body(readContentsOf("helloWorld.json"))
+                .given("Client with ID:1 exists").uponReceiving("Request for a client with an ID of 1").path("/client/1").method("GET")
+                .willRespondWith().status(200).headers(headers).body(readContentsOf("client-1.json"))
                 .toPact();
     }
 
     @Test
     @PactVerification()
     public void run() {
-        ResponseEntity<String> response = new RestTemplate().getForEntity(mockProvider.getUrl() + "/greeting", String.class);
+        ResponseEntity<String> response = new RestTemplate().getForEntity(mockProvider.getUrl() + "/client/1", String.class);
         assertThat(response.getStatusCode().value()).isEqualTo(200);
         assertThat(response.getHeaders().get("Content-Type").contains("application/json")).isTrue();
-        assertThat(response.getBody()).contains("content", "Hello, World");
-    }
-
-    @Test
-    public void readsFromTestResources() throws IOException {
-        System.out.println(readContentsOf("logback-test.xml"));
+        assertThat(response.getBody()).contains("name", "Foo");
+        assertThat(response.getBody()).contains("secretCode", "shhhh");
+        assertThat(response.getBody()).contains("location", "London");
     }
 
     private String readContentsOf(String aFileName) throws IOException {
         return Resources.toString(getResource(aFileName), UTF_8);
     }
-
 }

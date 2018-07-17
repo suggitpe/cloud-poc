@@ -6,7 +6,7 @@ ext {
     libs = [
             eurekaServer              : 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:2.0.0.RELEASE',
             eurekaClient              : 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:2.0.0.RELEASE',
-            springBootStarter         : "org.springframework.boot:spring-boot-starter-web:$springBootVersion",
+            springBootStarterWeb      : "org.springframework.boot:spring-boot-starter-web:$springBootVersion",
             springBootDataStarter     : "org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion",
             springBootThymeLeafStarter: "org.springframework.boot:spring-boot-starter-thymeleaf:$springBootVersion",
             springBootSecurityStarter : "org.springframework.boot:spring-boot-starter-security:$springBootVersion",
@@ -14,7 +14,9 @@ ext {
             swagger                   : 'io.springfox:springfox-swagger2:2.9.0',
             swaggerUI                 : 'io.springfox:springfox-swagger-ui:2.9.0',
 
+            byteBuddy                 : 'net.bytebuddy:byte-buddy:1.7.3',
             gson                      : 'com.google.code.gson:gson:2.8.2', // this is to avoid a NoSuchMethodException
+            guava                     : 'com.google.guava:guava:25.1-jre',
 
             h2db                      : 'com.h2database:h2',
 
@@ -29,7 +31,7 @@ ext {
                     serenityScreenplayRest     : "net.serenity-bdd:serenity-screenplay-rest:${serenityVersion}",
                     serenityCucumber           : 'net.serenity-bdd:serenity-cucumber:1.9.8',
 
-                    pactjvm                    : 'au.com.dius:pact-jvm-consumer-junit_2.12:3.5.18'
+                    pactjvmConsumer            : 'au.com.dius:pact-jvm-consumer-junit_2.12:3.5.18'
             ]
     ]
 }

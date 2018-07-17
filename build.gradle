@@ -38,11 +38,15 @@ subprojects {
                 libs.test.serenityScreenplay,
                 libs.test.serenityScreenplayRest,
                 libs.test.serenityCucumber,
-                libs.test.pactjvm
+                libs.guava
     }
 
     ext {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
+    }
+
+    test {
+        systemProperties['pact.rootDir'] = "$buildDir/pacts"
     }
 }

@@ -1,8 +1,13 @@
-Feature: Hello World
+Feature: Greeting Service
 
-  Producer responds with hello world
+  Producer responds with greeting
 
-  Scenario: Calling Producer yields hello world
+  Scenario: Calling Producer yields greeting
     Given the Producer is running
-    When I call the Producer
-    Then it says hello
+    When Bob calls the Producer
+    Then it says "Hello, Bob"
+
+  Scenario: Calling the Producer anonymously yields greeting to whole world
+    Given the Producer is running
+    When someone called the Producer anonymously
+    Then it says "Hello, World"

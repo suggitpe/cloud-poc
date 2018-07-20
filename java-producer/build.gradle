@@ -11,7 +11,8 @@ dependencies{
             libs.eurekaClient,
             libs.gson,
             libs.swagger,
-            libs.swaggerUI
+            libs.swaggerUI,
+            libs.lombok
 
     testRuntime project(':discovery-service')
 }

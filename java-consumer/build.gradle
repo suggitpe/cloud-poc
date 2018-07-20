@@ -10,7 +10,6 @@ dependencies {
     compile libs.springBootStarterWeb,
             libs.eurekaClient,
             libs.springBootThymeLeafStarter,
-            libs.gson,
             libs.swagger,
             libs.swaggerUI
 

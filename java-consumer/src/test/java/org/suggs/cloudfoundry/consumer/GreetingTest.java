@@ -8,6 +8,8 @@ import au.com.dius.pact.model.RequestResponsePact;
 import com.google.common.io.Resources;
 import org.junit.Rule;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
@@ -20,6 +22,8 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class GreetingTest {
+
+    private static final Logger LOG = LoggerFactory.getLogger(GreetingTest.class);
 
     @Rule
     public PactProviderRuleMk2 mockProvider = new PactProviderRuleMk2("test_provider", this);
@@ -46,7 +50,7 @@ public class GreetingTest {
 
     @Test
     public void readsFromTestResources() throws IOException {
-        System.out.println(readContentsOf("logback-test.xml"));
+        LOG.info(readContentsOf("logback-test.xml"));
     }
 
     private String readContentsOf(String aFileName) throws IOException {

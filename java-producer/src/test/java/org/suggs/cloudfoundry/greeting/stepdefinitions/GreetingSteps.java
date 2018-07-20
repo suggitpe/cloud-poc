@@ -12,7 +12,7 @@ import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 
-public class HelloWorldSteps {
+public class GreetingSteps {
 
     public static final String PRODUCER_URL = "http://localhost:8901";
     private Actor actor;

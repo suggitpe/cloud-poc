@@ -3,9 +3,11 @@ package org.suggs.cloudfoundry.consumer.greeting;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-class Greeting {
+public class Greeting {
+
     private long id;
-    private String content;
+    private String from;
+    private String greeting;
 
     public long getId() {
         return id;
@@ -15,15 +17,28 @@ class Greeting {
         this.id = id;
     }
 
-    public String getContent() {
-        return content;
+    public String getFrom() {
+        return from;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setFrom(String from) {
+        this.from = from;
     }
 
+    public String getGreeting() {
+        return greeting;
+    }
+
+    public void setGreeting(String greeting) {
+        this.greeting = greeting;
+    }
+
+    @Override
     public String toString() {
-        return "Value{id=" + id + ", content=" + content + "}";
+        return "Greeting{" +
+                "id=" + id +
+                ", from='" + from + '\'' +
+                ", greeting='" + greeting + '\'' +
+                '}';
     }
 }

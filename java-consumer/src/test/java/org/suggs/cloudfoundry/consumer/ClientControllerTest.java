@@ -9,6 +9,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.io.Resources;
 import org.junit.Rule;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import org.suggs.cloudfoundry.consumer.client.Client;
@@ -22,11 +24,15 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ClientControllerTest {
+
+    private static final Logger LOG = LoggerFactory.getLogger(ClientControllerTest.class);
+
     @Rule
     public PactProviderRuleMk2 mockProvider = new PactProviderRuleMk2("test_provider", this);
 
     @Pact(consumer = "client_consumer")
     public RequestResponsePact createPact(PactDslWithProvider builder) throws IOException {
+        LOG.info("Creating mock response for Pact");
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
 
@@ -38,7 +44,8 @@ public class ClientControllerTest {
 
     @Test
     @PactVerification()
-    public void run() throws IOException {
+    public void checkWeCanProcessTheClientPact() throws IOException {
+        LOG.info("Calling mock webservice to verify the Pact works for us");
         ResponseEntity<String> response = new RestTemplate().getForEntity(mockProvider.getUrl() + "/client/1", String.class);
 
         assertThat(response.getStatusCode().value()).isEqualTo(200);

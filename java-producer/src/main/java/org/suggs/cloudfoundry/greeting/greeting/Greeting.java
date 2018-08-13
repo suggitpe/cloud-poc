@@ -3,18 +3,18 @@ package org.suggs.cloudfoundry.greeting.greeting;
 public class Greeting {
 
     private final long id;
-    private final String content;
+    private final String greeting;
 
     public Greeting(long id, String content) {
         this.id = id;
-        this.content = content;
+        this.greeting = content;
     }
 
     public long getId() {
         return id;
     }
 
-    public String getContent() {
-        return content;
+    public String getGreeting() {
+        return greeting;
     }
 }

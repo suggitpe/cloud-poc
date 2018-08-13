@@ -5,6 +5,7 @@ import au.com.dius.pact.consumer.PactProviderRuleMk2;
 import au.com.dius.pact.consumer.PactVerification;
 import au.com.dius.pact.consumer.dsl.PactDslWithProvider;
 import au.com.dius.pact.model.RequestResponsePact;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.io.Resources;
 import org.junit.Rule;
 import org.junit.Test;
@@ -12,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
+import org.suggs.cloudfoundry.consumer.greeting.Greeting;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -41,16 +43,20 @@ public class GreetingTest {
 
     @Test
     @PactVerification()
-    public void run() {
+    public void checkWeCanProcessTheGreetingPact() throws IOException {
         ResponseEntity<String> response = new RestTemplate().getForEntity(mockProvider.getUrl() + "/greeting", String.class);
+
         assertThat(response.getStatusCode().value()).isEqualTo(200);
         assertThat(response.getHeaders().get("Content-Type").contains("application/json")).isTrue();
-        assertThat(response.getBody()).contains("content", "Hello, World");
+
+        Greeting greeting = new ObjectMapper().readValue(response.getBody(), Greeting.class);
+        assertThat(greeting.getFrom()).isEqualTo("A friend");
+        assertThat(greeting.getGreeting()).isEqualTo("Hello World");
     }
 
     @Test
     public void readsFromTestResources() throws IOException {
-        LOG.info(readContentsOf("logback-test.xml"));
+        LOG.debug(readContentsOf("logback-test.xml"));
     }
 
     private String readContentsOf(String aFileName) throws IOException {

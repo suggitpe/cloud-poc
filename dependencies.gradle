@@ -14,13 +14,8 @@ ext {
             swagger                   : 'io.springfox:springfox-swagger2:2.9.2',
             swaggerUI                 : 'io.springfox:springfox-swagger-ui:2.9.2',
 
-            //byteBuddy                 : 'net.bytebuddy:byte-buddy:1.7.3',
             gson                      : 'com.google.code.gson:gson:2.8.2', // this is to avoid a NoSuchMethodException
             guava                     : 'com.google.guava:guava:25.1-jre',
-
-            lombok                    : 'org.projectlombok:lombok:1.16.20',
-
-            //h2db                      : 'com.h2database:h2',
 
             test                      : [
                     junit                      : 'junit:junit:4.12',

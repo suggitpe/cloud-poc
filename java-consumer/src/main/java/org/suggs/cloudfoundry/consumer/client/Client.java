@@ -2,7 +2,7 @@ package org.suggs.cloudfoundry.consumer.client;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-    @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Client {
 
     private Long id;

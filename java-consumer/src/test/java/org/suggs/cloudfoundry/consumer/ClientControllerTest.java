@@ -5,11 +5,13 @@ import au.com.dius.pact.consumer.PactProviderRuleMk2;
 import au.com.dius.pact.consumer.PactVerification;
 import au.com.dius.pact.consumer.dsl.PactDslWithProvider;
 import au.com.dius.pact.model.RequestResponsePact;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.io.Resources;
 import org.junit.Rule;
 import org.junit.Test;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
+import org.suggs.cloudfoundry.consumer.client.Client;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -36,13 +38,16 @@ public class ClientControllerTest {
 
     @Test
     @PactVerification()
-    public void run() {
+    public void run() throws IOException {
         ResponseEntity<String> response = new RestTemplate().getForEntity(mockProvider.getUrl() + "/client/1", String.class);
+
         assertThat(response.getStatusCode().value()).isEqualTo(200);
         assertThat(response.getHeaders().get("Content-Type").contains("application/json")).isTrue();
-        assertThat(response.getBody()).contains("name", "Foo");
-        assertThat(response.getBody()).contains("secretCode", "shhhh");
-        assertThat(response.getBody()).contains("location", "London");
+
+        Client client = new ObjectMapper().readValue(response.getBody(), Client.class);
+        assertThat(client.getName()).isEqualTo("MyName");
+        assertThat(client.getLocation()).isEqualTo("London");
+        assertThat(client.getSecretCode()).isEqualTo("MySecretCode");
     }
 
     private String readContentsOf(String aFileName) throws IOException {

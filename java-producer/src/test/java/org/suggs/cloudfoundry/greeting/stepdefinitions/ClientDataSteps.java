@@ -6,7 +6,7 @@ import cucumber.api.java.en.When;
 import io.restassured.RestAssured;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.rest.abiities.CallAnApi;
-import org.suggs.cloudfoundry.greeting.dsl.Say;
+import org.suggs.cloudfoundry.greeting.dsl.Retrieve;
 import org.suggs.cloudfoundry.greeting.dsl.TheReply;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
@@ -14,33 +14,32 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
-public class GreetingSteps {
+public class ClientDataSteps {
 
     public static final String PRODUCER_URL = "http://localhost:8901";
     private Actor actor;
 
-    @Given("^the Greeting Service is running$")
+    @Given("^the Client Service is running$")
     public void the_producer_is_running() {
         assertThat(RestAssured.get(PRODUCER_URL).statusCode(), is(200));
     }
 
-    @When("^(.*) calls the Greeting Service")
-    public void calls_the_producer(String actorName) {
+    @When("^(.*) calls the client service for client ref (\\d+)$")
+    public void john_calls_the_client_service_for_client_ref(String actorName, int clientRef) {
         actor = Actor.named(actorName);
         actor.can(CallAnApi.at(PRODUCER_URL));
-        actor.attemptsTo(Say.hello());
+        actor.attemptsTo(Retrieve.client(clientRef));
     }
 
-    @When("^someone called the Greeting Service anonymously$")
-    public void someone_called_the_Producer_anonymously() {
-        actor = Actor.named("Anonymous");
-        actor.can(CallAnApi.at(PRODUCER_URL));
-        actor.attemptsTo(Say.helloAnonymously());
+    @Then("^it tells John that the client is called (.*)$")
+    public void it_tells_John_that_the_client_is_called(String name) {
+        actor.should(seeThat(TheReply.name(), is(equalTo(name))));
     }
 
-    @Then("^it says \"(.*)\"$")
-    public void it_says(String response) {
-        actor.should(seeThat(TheReply.content(), is(equalTo(response))));
+    @Then("^it tells John that the location is (.*)$")
+    public void it_tells_John_that_the_location_is(String location) {
+        actor.should(seeThat(TheReply.location(), is(equalTo(location))));
     }
 
 }
+

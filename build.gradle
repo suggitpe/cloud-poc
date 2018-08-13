@@ -13,13 +13,13 @@ allprojects {
         }
         dependencies {
             classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}",
-                    "au.com.dius:pact-jvm-provider-gradle_2.12:${pactVersion}"
+                    "au.com.dius:pact-jvm-provider-gradle_2.12:${pactVersion}",
+                    "net.serenity-bdd:serenity-gradle-plugin:1.9.31"
         }
     }
 }
 
 subprojects {
-
 
     repositories {
         jcenter()

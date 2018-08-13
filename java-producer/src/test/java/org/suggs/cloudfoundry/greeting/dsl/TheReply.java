@@ -13,4 +13,22 @@ public class TheReply {
                         .jsonPath()
                         .get("content").toString();
     }
+
+    public static Question<String> name() {
+        return actor ->
+                CallAnApi.as(actor)
+                        .getLastResponse()
+                        .jsonPath()
+                        .get("name").toString();
+
+
+    }
+
+    public static Question<String> location() {
+        return actor ->
+                CallAnApi.as(actor)
+                        .getLastResponse()
+                        .jsonPath()
+                        .get("location").toString();
+    }
 }

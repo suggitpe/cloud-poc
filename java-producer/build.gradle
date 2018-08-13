@@ -1,4 +1,5 @@
 apply plugin: 'org.springframework.boot'
+apply plugin: 'net.serenity-bdd.aggregator'
 
 bootJar{
     baseName = 'java-producer'
@@ -13,6 +14,8 @@ dependencies{
             libs.swagger,
             libs.swaggerUI,
             libs.lombok
+
+    testCompile libs.test.pactJvmProvider
 
     testRuntime project(':discovery-service')
 }

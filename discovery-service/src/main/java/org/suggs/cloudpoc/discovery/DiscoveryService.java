@@ -1,4 +1,4 @@
-package org.suggs.cloudfoundry.discovery;
+package org.suggs.cloudpoc.discovery;
 
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,7 +10,6 @@ import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
-
 
 @SpringBootApplication
 @EnableEurekaServer

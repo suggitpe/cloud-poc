@@ -1,9 +1,9 @@
 {
     "provider": {
-        "name": "test_provider"
+        "name": "greeting_provider"
     },
     "consumer": {
-        "name": "test_consumer"
+        "name": "greeting_consumer"
     },
     "interactions": [
         {
@@ -19,7 +19,7 @@
                 },
                 "body": {
                     "id": 1,
-                    "from": "A friend",
+                    "from": "producer",
                     "greeting": "Hello, World"
                 }
             },

@@ -16,14 +16,14 @@ import org.springframework.web.context.ConfigurableWebApplicationContext;
 import org.suggs.cloudpoc.producer.Producer;
 
 @RunWith(PactRunner.class)
-@Provider("test_provider")
+@Provider("greeting_provider")
 @PactFolder("pacts")
 public class GreetingPactTest {
 
     private static final Logger LOG = LoggerFactory.getLogger(GreetingPactTest.class);
 
     @TestTarget
-    public final Target target = new HttpTarget("http", "localhost", 8901, "/greeting");
+    public final Target target = new HttpTarget("http", "localhost", 8901, "/");
 
     private static ConfigurableWebApplicationContext application;
 

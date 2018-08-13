@@ -28,9 +28,9 @@ public class GreetingPactTest {
     private static final Logger LOG = LoggerFactory.getLogger(GreetingPactTest.class);
 
     @Rule
-    public PactProviderRuleMk2 mockProvider = new PactProviderRuleMk2("test_provider", this);
+    public PactProviderRuleMk2 mockProvider = new PactProviderRuleMk2("greeting_provider", this);
 
-    @Pact(consumer = "test_consumer")
+    @Pact(consumer = "greeting_consumer")
     public RequestResponsePact createPact(PactDslWithProvider builder) throws IOException {
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
@@ -50,7 +50,7 @@ public class GreetingPactTest {
         assertThat(response.getHeaders().get("Content-Type").contains("application/json")).isTrue();
 
         Greeting greeting = new ObjectMapper().readValue(response.getBody(), Greeting.class);
-        assertThat(greeting.getFrom()).isEqualTo("A friend");
+        assertThat(greeting.getFrom()).isEqualTo("producer");
         assertThat(greeting.getGreeting()).isEqualTo("Hello, World");
     }
 

@@ -3,14 +3,14 @@
         "name": "test_provider"
     },
     "consumer": {
-        "name": "test_consumer"
+        "name": "client_consumer"
     },
     "interactions": [
         {
-            "description": "Request for a greeting",
+            "description": "Request for a client with an ID of 1",
             "request": {
                 "method": "GET",
-                "path": "/greeting"
+                "path": "/client/1"
             },
             "response": {
                 "status": 200,
@@ -19,13 +19,14 @@
                 },
                 "body": {
                     "id": 1,
-                    "from": "A friend",
-                    "greeting": "Hello, World"
+                    "name": "MyName",
+                    "secretCode": "MySecretCode",
+                    "location": "London"
                 }
             },
             "providerStates": [
                 {
-                    "name": "test GET"
+                    "name": "Client with ID:1 exists"
                 }
             ]
         }

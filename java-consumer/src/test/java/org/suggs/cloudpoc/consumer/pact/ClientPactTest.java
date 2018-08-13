@@ -28,7 +28,7 @@ public class ClientPactTest {
     private static final Logger LOG = LoggerFactory.getLogger(ClientPactTest.class);
 
     @Rule
-    public PactProviderRuleMk2 mockProvider = new PactProviderRuleMk2("test_provider", this);
+    public PactProviderRuleMk2 mockProvider = new PactProviderRuleMk2("client_provider", this);
 
     @Pact(consumer = "client_consumer")
     public RequestResponsePact createPact(PactDslWithProvider builder) throws IOException {

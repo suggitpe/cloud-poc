@@ -16,11 +16,11 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.suggs.cloudpoc.producer.Producer;
 
 @RunWith(PactRunner.class)
-@Provider("greeting_provider")
+@Provider("client_provider")
 @PactFolder("pacts")
-public class GreetingPactTest {
+public class ClientPactTest {
 
-    private static final Logger LOG = LoggerFactory.getLogger(GreetingPactTest.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ClientPactTest.class);
 
     @TestTarget
     public final Target target = new HttpTarget("http", "localhost", 8901, "/");
@@ -28,13 +28,12 @@ public class GreetingPactTest {
     private static ConfigurableApplicationContext application;
 
     @BeforeClass
-    public static void start() {
+    public static void startApplicationContext() {
         application = SpringApplication.run(Producer.class);
     }
 
     @State("test GET")
     public void toGetState() {
-        LOG.info("--------------------------------");
+        LOG.info("-----------------------------------------");
     }
-
 }

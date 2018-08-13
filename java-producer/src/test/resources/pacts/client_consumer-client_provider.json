@@ -1,0 +1,42 @@
+{
+    "provider": {
+        "name": "client_provider"
+    },
+    "consumer": {
+        "name": "client_consumer"
+    },
+    "interactions": [
+        {
+            "description": "Request for a client with an ID of 1",
+            "request": {
+                "method": "GET",
+                "path": "/client/1"
+            },
+            "response": {
+                "status": 200,
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "body": {
+                    "id": 1,
+                    "name": "MyName",
+                    "secretCode": "MySecretCode",
+                    "location": "London"
+                }
+            },
+            "providerStates": [
+                {
+                    "name": "Client with ID:1 exists"
+                }
+            ]
+        }
+    ],
+    "metadata": {
+        "pactSpecification": {
+            "version": "3.0.0"
+        },
+        "pact-jvm": {
+            "version": "3.5.19"
+        }
+    }
+}

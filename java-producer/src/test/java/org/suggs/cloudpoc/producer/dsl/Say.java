@@ -1,4 +1,4 @@
-package org.suggs.cloudfoundry.greeting.dsl;
+package org.suggs.cloudpoc.producer.dsl;
 
 import net.serenitybdd.screenplay.Performable;
 

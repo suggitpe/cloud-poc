@@ -1,8 +1,7 @@
-package org.suggs.cloudfoundry.greeting.greeting;
+package org.suggs.cloudpoc.producer.greeting;
 
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 

@@ -1,4 +1,4 @@
-package org.suggs.cloudfoundry.greeting.stepdefinitions;
+package org.suggs.cloudpoc.producer.stepdefinitions;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -6,8 +6,8 @@ import cucumber.api.java.en.When;
 import io.restassured.RestAssured;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.rest.abiities.CallAnApi;
-import org.suggs.cloudfoundry.greeting.dsl.Say;
-import org.suggs.cloudfoundry.greeting.dsl.TheReply;
+import org.suggs.cloudpoc.producer.dsl.Say;
+import org.suggs.cloudpoc.producer.dsl.TheReply;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static org.hamcrest.Matchers.equalTo;

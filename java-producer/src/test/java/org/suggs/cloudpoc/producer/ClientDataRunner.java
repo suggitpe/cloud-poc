@@ -1,4 +1,4 @@
-package org.suggs.cloudfoundry.greeting;
+package org.suggs.cloudpoc.producer;
 
 import cucumber.api.CucumberOptions;
 import net.serenitybdd.cucumber.CucumberWithSerenity;

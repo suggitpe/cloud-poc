@@ -1,4 +1,4 @@
-package org.suggs.cloudfoundry.greeting.greeting;
+package org.suggs.cloudpoc.producer.greeting;
 
 public class Greeting {
 

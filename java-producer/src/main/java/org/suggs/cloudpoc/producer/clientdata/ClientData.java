@@ -1,4 +1,4 @@
-package org.suggs.cloudfoundry.greeting.clientdata;
+package org.suggs.cloudpoc.producer.clientdata;
 
 public class ClientData {
     private final long id;

@@ -1,4 +1,4 @@
-package org.suggs.cloudfoundry.greeting;
+package org.suggs.cloudpoc.producer;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;

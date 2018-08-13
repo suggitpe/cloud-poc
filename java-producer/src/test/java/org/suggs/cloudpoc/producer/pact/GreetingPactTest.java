@@ -1,4 +1,4 @@
-package org.suggs.cloudpoc.producer;
+package org.suggs.cloudpoc.producer.pact;
 
 import au.com.dius.pact.provider.junit.PactRunner;
 import au.com.dius.pact.provider.junit.Provider;
@@ -13,13 +13,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.web.context.ConfigurableWebApplicationContext;
+import org.suggs.cloudpoc.producer.Producer;
 
 @RunWith(PactRunner.class)
 @Provider("test_provider")
 @PactFolder("pacts")
-public class GreetingTest {
+public class GreetingPactTest {
 
-    private static final Logger LOG = LoggerFactory.getLogger(GreetingTest.class);
+    private static final Logger LOG = LoggerFactory.getLogger(GreetingPactTest.class);
 
     @TestTarget
     public final Target target = new HttpTarget("http", "localhost", 8901, "/greeting");

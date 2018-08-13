@@ -18,7 +18,7 @@ public class GreetingController {
     @ApiOperation(value = "If you tell it your name it will say hi!")
     @RequestMapping(value = "/greeting", method = GET)
     public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
-        return new Greeting(counter.incrementAndGet(), String.format(template, name));
+        return new Greeting(counter.incrementAndGet(), "producer", String.format(template, name));
     }
 
 }

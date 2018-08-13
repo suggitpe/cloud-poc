@@ -1,4 +1,4 @@
-package org.suggs.cloudfoundry.consumer;
+package org.suggs.cloudpoc.consumer;
 
 import au.com.dius.pact.consumer.Pact;
 import au.com.dius.pact.consumer.PactProviderRuleMk2;
@@ -13,7 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
-import org.suggs.cloudfoundry.consumer.client.Client;
+import org.suggs.cloudpoc.consumer.client.Client;
 
 import java.io.IOException;
 import java.util.HashMap;

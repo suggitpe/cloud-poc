@@ -1,4 +1,4 @@
-package org.suggs.cloudfoundry.consumer.client;
+package org.suggs.cloudpoc.consumer.client;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

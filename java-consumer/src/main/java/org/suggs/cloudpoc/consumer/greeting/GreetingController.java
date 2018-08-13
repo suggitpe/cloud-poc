@@ -1,4 +1,4 @@
-package org.suggs.cloudfoundry.consumer.greeting;
+package org.suggs.cloudpoc.consumer.greeting;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

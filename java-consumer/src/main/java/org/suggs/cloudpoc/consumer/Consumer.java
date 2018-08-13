@@ -1,4 +1,4 @@
-package org.suggs.cloudfoundry.consumer;
+package org.suggs.cloudpoc.consumer;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;

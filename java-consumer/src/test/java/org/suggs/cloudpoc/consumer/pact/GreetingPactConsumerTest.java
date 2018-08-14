@@ -23,9 +23,9 @@ import static com.google.common.io.Resources.getResource;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class GreetingPactTest {
+public class GreetingPactConsumerTest {
 
-    private static final Logger LOG = LoggerFactory.getLogger(GreetingPactTest.class);
+    private static final Logger LOG = LoggerFactory.getLogger(GreetingPactConsumerTest.class);
 
     @Rule
     public PactProviderRuleMk2 mockProvider = new PactProviderRuleMk2("greeting_provider", this);
@@ -37,7 +37,7 @@ public class GreetingPactTest {
 
         return builder
                 .given("test GET").uponReceiving("Request for a greeting").path("/greeting").method("GET")
-                .willRespondWith().status(200).headers(headers).body(readContentsOf("helloWorld.json"))
+                .willRespondWith().status(200).headers(headers).body(readContentsOf("greeting.json"))
                 .toPact();
     }
 

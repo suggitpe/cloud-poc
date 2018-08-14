@@ -2,6 +2,8 @@ allprojects {
     defaultTasks 'clean', 'build'
     apply from: "$rootDir/dependencies.gradle"
 
+    group = 'org.suggs.cloudpoc'
+
     buildscript {
         ext {
             springBootVersion = '2.0.3.RELEASE'

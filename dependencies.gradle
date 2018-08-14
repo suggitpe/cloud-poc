@@ -7,9 +7,7 @@ ext {
             eurekaServer              : 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:2.0.0.RELEASE',
             eurekaClient              : 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:2.0.0.RELEASE',
             springBootStarterWeb      : "org.springframework.boot:spring-boot-starter-web:$springBootVersion",
-            springBootDataStarter     : "org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion",
             springBootThymeLeafStarter: "org.springframework.boot:spring-boot-starter-thymeleaf:$springBootVersion",
-            springBootSecurityStarter : "org.springframework.boot:spring-boot-starter-security:$springBootVersion",
 
             swagger                   : 'io.springfox:springfox-swagger2:2.9.2',
             swaggerUI                 : 'io.springfox:springfox-swagger-ui:2.9.2',

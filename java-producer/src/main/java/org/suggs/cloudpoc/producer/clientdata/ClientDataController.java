@@ -18,7 +18,7 @@ public class ClientDataController {
     private Map<Long, ClientData> mapOfClientData = new HashMap<>();
 
     {
-        mapOfClientData.put(1L, new ClientData(1L, "Foo", "shhhh", "London"));
+        mapOfClientData.put(1L, new ClientData(1L, "MyName", "MySecretCode", "London"));
         mapOfClientData.put(2L, new ClientData(2L, "Bar", "shhhh", "Paris"));
         mapOfClientData.put(3L, new ClientData(3L, "Baz", "shhhh", "New York"));
     }

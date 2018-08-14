@@ -10,7 +10,12 @@
             "description": "Request for a client with an ID of 1",
             "request": {
                 "method": "GET",
-                "path": "/client/1"
+                "path": "/clientData",
+                "query": {
+                    "id": [
+                        "1"
+                    ]
+                }
             },
             "response": {
                 "status": 200,

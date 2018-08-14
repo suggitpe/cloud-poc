@@ -18,9 +18,9 @@ import org.suggs.cloudpoc.producer.Producer;
 @RunWith(PactRunner.class)
 @Provider("greeting_provider")
 @PactFolder("pacts")
-public class GreetingPactTest {
+public class GreetingPactProducerTest {
 
-    private static final Logger LOG = LoggerFactory.getLogger(GreetingPactTest.class);
+    private static final Logger LOG = LoggerFactory.getLogger(GreetingPactProducerTest.class);
 
     @TestTarget
     public final Target target = new HttpTarget("http", "localhost", 8901, "/");

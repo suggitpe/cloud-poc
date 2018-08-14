@@ -14,6 +14,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import static org.springframework.boot.WebApplicationType.SERVLET;
+import static springfox.documentation.spi.DocumentationType.SWAGGER_2;
 
 @SpringBootApplication
 @EnableDiscoveryClient
@@ -34,7 +35,7 @@ public class Consumer {
 
     @Bean
     public Docket api() {
-        return new Docket(DocumentationType.SWAGGER_2)
+        return new Docket(SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.any())
                 .paths(PathSelectors.any())

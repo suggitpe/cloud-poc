@@ -11,13 +11,15 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+import static org.springframework.boot.WebApplicationType.SERVLET;
+
 @SpringBootApplication
 @EnableEurekaServer
 @EnableSwagger2
 public class DiscoveryService {
     public static void main(String[] args) {
         new SpringApplicationBuilder(DiscoveryService.class)
-                .web(WebApplicationType.SERVLET)
+                .web(SERVLET)
                 .run(args);
     }
 

@@ -18,9 +18,9 @@ import org.suggs.cloudpoc.producer.Producer;
 @RunWith(PactRunner.class)
 @Provider("client_provider")
 @PactFolder("pacts")
-public class ClientPactTest {
+public class ClientPactProducerTest {
 
-    private static final Logger LOG = LoggerFactory.getLogger(ClientPactTest.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ClientPactProducerTest.class);
 
     @TestTarget
     public final Target target = new HttpTarget("http", "localhost", 8901, "/");
@@ -32,7 +32,7 @@ public class ClientPactTest {
         application = SpringApplication.run(Producer.class);
     }
 
-    @State("test GET")
+    @State("Client with ID:1 exists")
     public void toGetState() {
         LOG.info("-----------------------------------------");
     }

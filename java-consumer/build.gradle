@@ -15,6 +15,5 @@ dependencies {
 
     testCompile libs.test.pactJvmConsumer
 
-    runtime project(':discovery-service'),
-            project(':java-producer')
+    runtime project(':discovery-service')
 }

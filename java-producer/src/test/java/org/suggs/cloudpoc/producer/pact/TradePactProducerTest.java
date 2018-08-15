@@ -16,24 +16,24 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.suggs.cloudpoc.producer.Producer;
 
 @RunWith(PactRunner.class)
-@Provider("client_provider")
+@Provider("tradeevent_provider")
 @PactFolder("pacts")
-public class ClientPactProducerTest {
+public class TradePactProducerTest {
 
-    private static final Logger LOG = LoggerFactory.getLogger(ClientPactProducerTest.class);
+    private static final Logger LOG = LoggerFactory.getLogger(TradePactProducerTest.class);
 
     @TestTarget
     public final Target target = new HttpTarget("http", "localhost", 8901, "/");
 
-    private static ConfigurableApplicationContext application;
+    public static ConfigurableApplicationContext application;
 
     @BeforeClass
-    public static void startApplicationContext() {
+    public static void start() {
         application = SpringApplication.run(Producer.class);
     }
 
-    @State("Client with ID:1 exists")
-    public void createClientForID() {
+    @State("toto")
+    public void toGetState(){
         LOG.info("-----------------------------------------");
     }
 }

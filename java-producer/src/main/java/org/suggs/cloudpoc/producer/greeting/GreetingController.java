@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @RestController
-@Api("Greeting Conroller")
+@Api("Greeting Controller")
 public class GreetingController {
 
     private static final String template = "Hello, %s";

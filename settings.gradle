@@ -1,3 +1,4 @@
 include 'discovery-service',
         'java-producer',
-        'java-consumer'
+        'java-consumer',
+        'other-consumer'

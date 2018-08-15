@@ -1,0 +1,19 @@
+apply plugin: 'org.springframework.boot'
+apply plugin: 'au.com.dius.pact'
+
+bootJar {
+    baseName = 'other-consumer'
+    version = '0.0.1'
+}
+
+dependencies {
+    compile libs.springBootStarterWeb,
+            libs.eurekaClient,
+            libs.springBootThymeLeafStarter,
+            libs.swagger,
+            libs.swaggerUI
+
+    testCompile libs.test.pactJvmConsumer
+
+    runtime project(':discovery-service')
+}

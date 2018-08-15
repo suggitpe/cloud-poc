@@ -1,4 +1,4 @@
-package org.suggs.cloudpoc.consumer;
+package org.suggs.cloudpoc.otherconsumer;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
-import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
@@ -19,10 +18,10 @@ import static springfox.documentation.spi.DocumentationType.SWAGGER_2;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableSwagger2
-public class Consumer {
+public class OtherConsumer {
 
     public static void main(String[] args) {
-        new SpringApplicationBuilder(Consumer.class)
+        new SpringApplicationBuilder(OtherConsumer.class)
                 .web(SERVLET)
                 .run(args);
     }

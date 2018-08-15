@@ -18,7 +18,7 @@ public class GreetingController {
     private final AtomicLong counter = new AtomicLong();
 
     @ApiOperation(value = "If you tell it your name it will say hi!")
-    @RequestMapping(value = "/greeting", method = GET)
+    @RequestMapping(value = "/greeting", method = GET, produces = "application/json")
     public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
         return new Greeting(counter.incrementAndGet(), "producer", String.format(template, name), 1L);
     }

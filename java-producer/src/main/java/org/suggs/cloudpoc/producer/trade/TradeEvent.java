@@ -1,7 +1,6 @@
 package org.suggs.cloudpoc.producer.trade;
 
-import org.joda.time.DateTime;
-
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
@@ -10,10 +9,10 @@ public class TradeEvent {
     private final String eventType;
     private final String eventSubType;
     private final TradeIdentifier tradeIdentifier;
-    private final DateTime executionTimestamp;
+    private final LocalDateTime executionTimestamp;
     private final List<TradeLeg> legs;
 
-    public TradeEvent(String eventType, String eventSubType, TradeIdentifier tradeIdentifier, DateTime executionTimestamp, List<TradeLeg> legs) {
+    public TradeEvent(String eventType, String eventSubType, TradeIdentifier tradeIdentifier, LocalDateTime executionTimestamp, List<TradeLeg> legs) {
         this.eventType = eventType;
         this.eventSubType = eventSubType;
         this.tradeIdentifier = tradeIdentifier;
@@ -33,7 +32,7 @@ public class TradeEvent {
         return tradeIdentifier;
     }
 
-    public DateTime getExecutionTimestamp() {
+    public LocalDateTime getExecutionTimestamp() {
         return executionTimestamp;
     }
 

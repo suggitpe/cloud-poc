@@ -1,8 +1,8 @@
 package org.suggs.cloudpoc.consumer.trade;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.joda.time.DateTime;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -11,7 +11,7 @@ public class TradeEvent {
     private String eventType;
     private String eventSubType;
     private TradeIdentifier tradeIdentifier;
-    private DateTime executionTimestamp;
+    private LocalDateTime executionTimestamp;
     private List<TradeLeg> legs;
 
     public String getEventType() {
@@ -38,11 +38,11 @@ public class TradeEvent {
         this.tradeIdentifier = tradeIdentifier;
     }
 
-    public DateTime getExecutionTimestamp() {
+    public LocalDateTime getExecutionTimestamp() {
         return executionTimestamp;
     }
 
-    public void setExecutionTimestamp(DateTime executionTimestamp) {
+    public void setExecutionTimestamp(LocalDateTime executionTimestamp) {
         this.executionTimestamp = executionTimestamp;
     }
 

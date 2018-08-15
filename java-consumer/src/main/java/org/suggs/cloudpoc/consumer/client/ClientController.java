@@ -15,7 +15,7 @@ public class ClientController {
     @Autowired
     private RestTemplate restTemplate;
 
-    private String greetingService = "java-producer";
+    private static final String DATA_PRODUCER = "java-producer";
 
     @RequestMapping(value = "/client/{clientId}", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
@@ -35,7 +35,7 @@ public class ClientController {
     }
 
     private String buildRestUrl(Long clientId) {
-        return "http://" + greetingService + "/clientData/?id=" + clientId;
+        return "http://" + DATA_PRODUCER + "/clientData/?id=" + clientId;
     }
 
 

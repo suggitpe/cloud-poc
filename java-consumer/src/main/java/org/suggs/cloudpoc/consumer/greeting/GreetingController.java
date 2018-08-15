@@ -22,7 +22,7 @@ public class GreetingController {
     private RestTemplate restTemplate;
 
     // rest template will resolve the location 'magically'
-    private String greetingService = "java-producer";
+    private static final String DATA_PRODUCER = "java-producer";
 
     @RequestMapping(value = "/greeting/{personName}", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
@@ -42,7 +42,7 @@ public class GreetingController {
     }
 
     private String buildRestUrl(String personName) {
-        return "http://" + greetingService + "/greeting/?name=" + personName;
+        return "http://" + DATA_PRODUCER + "/greeting/?name=" + personName;
     }
 
 }

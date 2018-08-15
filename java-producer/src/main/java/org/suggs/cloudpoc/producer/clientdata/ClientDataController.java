@@ -24,7 +24,7 @@ public class ClientDataController {
     }
 
     @ApiOperation(value = "Gets data about clients by ID")
-    @RequestMapping(value = "/clientData", method = GET)
+    @RequestMapping(value = "/clientData", method = GET, produces = "application/json")
     public ClientData getClientDataFor(@RequestParam(value = "id") long id) {
         return mapOfClientData.get(id);
     }

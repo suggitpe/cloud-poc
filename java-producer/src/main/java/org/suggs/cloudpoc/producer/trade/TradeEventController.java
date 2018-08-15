@@ -10,12 +10,12 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @RestController
 @Api("Trade Event Controller")
-public class TradeController {
+public class TradeEventController {
 
     private TradeRepository tradeRepository = TradeRepository.init();
 
     @ApiOperation(value = "Gets TradeEvents by ID, domain, version")
-    @RequestMapping(value = "tradeEvent", method = GET)
+    @RequestMapping(value = "tradeEvent", method = GET, produces = "application/json")
     public TradeEvent getTradeEventFor(@RequestParam(value = "id") String id,
                                        @RequestParam(value = "domain") String domain,
                                        @RequestParam(value = "version") long version) {

@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Trade Event Data view</title>
+    <link rel="stylesheet" type="text/css" th:href="@{css/style.css}"></link>
+</head>
+
+<body>
+
+<h2>Data View</h2>
+
+<div th:if="data ne null">
+    <table>
+        <th><tr>Attribute</tr><tr>Value</tr></th>
+        <tr><td>Domain</td><td><span th:text="${data.tradeIdentifier.domain}">domain</span></td></tr>
+        <tr><td>ID</td><td><span th:text="${data.tradeIdentifier.id}">id</span></td></tr>
+        <tr><td>Version</td><td><span th:text="${data.tradeIdentifier.version}">version</span></td></tr>
+        <tr><td>Execution Timestamp</td><td><span th:text="${data.executionTimestamp}">execution timestamp</span></td></tr>
+        <tr><td>Event Type</td><td><span th:text="${data.eventType}">event type</span></td></tr>
+        <tr><td>Event Sub Type</td><td><span th:text="${data.eventSubType}">event sub type</span></td></tr>
+        <tr><td>Leg 1</td><td><span th:text="${data.legs[0]}">leg 0</span></td></tr>
+        <tr><td>Leg 2</td><td><span th:text="${data.legs[1]}">leg 1</span></td></tr>
+
+    </table>
+</div>
+
+<div th:if="data eq null">
+    <p>We could not find any Trade Event information for ID:<span th:text="${id}">id</span></p>
+</div>
+
+</body>
+</html>

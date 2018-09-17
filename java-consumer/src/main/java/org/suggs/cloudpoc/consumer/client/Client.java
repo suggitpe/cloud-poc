@@ -7,7 +7,6 @@ public class Client {
 
     private Long id;
     private String name;
-    private String secretCode;
     private String location;
 
     public Long getId() {
@@ -24,14 +23,6 @@ public class Client {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getSecretCode() {
-        return secretCode;
-    }
-
-    public void setSecretCode(String secretCode) {
-        this.secretCode = secretCode;
     }
 
     public String getLocation() {

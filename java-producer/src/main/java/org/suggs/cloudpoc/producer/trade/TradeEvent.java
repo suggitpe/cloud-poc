@@ -6,9 +6,9 @@ import java.util.Objects;
 
 public class TradeEvent {
 
+    private final TradeIdentifier tradeIdentifier;
     private final String eventType;
     private final String eventSubType;
-    private final TradeIdentifier tradeIdentifier;
     private final LocalDateTime executionTimestamp;
     private final List<TradeLeg> legs;
 
@@ -20,16 +20,16 @@ public class TradeEvent {
         this.legs = legs;
     }
 
+    public TradeIdentifier getTradeIdentifier() {
+        return tradeIdentifier;
+    }
+
     public String getEventType() {
         return eventType;
     }
 
     public String getEventSubType() {
         return eventSubType;
-    }
-
-    public TradeIdentifier getTradeIdentifier() {
-        return tradeIdentifier;
     }
 
     public LocalDateTime getExecutionTimestamp() {
@@ -45,24 +45,24 @@ public class TradeEvent {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TradeEvent that = (TradeEvent) o;
-        return Objects.equals(eventType, that.eventType) &&
+        return Objects.equals(tradeIdentifier, that.tradeIdentifier) &&
+                Objects.equals(eventType, that.eventType) &&
                 Objects.equals(eventSubType, that.eventSubType) &&
-                Objects.equals(tradeIdentifier, that.tradeIdentifier) &&
                 Objects.equals(executionTimestamp, that.executionTimestamp) &&
                 Objects.equals(legs, that.legs);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(eventType, eventSubType, tradeIdentifier, executionTimestamp, legs);
+        return Objects.hash(tradeIdentifier, eventType, eventSubType, executionTimestamp, legs);
     }
 
     @Override
     public String toString() {
         return "TradeEvent{" +
-                "eventType='" + eventType + '\'' +
+                "tradeIdentifier=" + tradeIdentifier +
+                ", eventType='" + eventType + '\'' +
                 ", eventSubType='" + eventSubType + '\'' +
-                ", tradeIdentifier=" + tradeIdentifier +
                 ", executionTimestamp=" + executionTimestamp +
                 ", legs=" + legs +
                 '}';

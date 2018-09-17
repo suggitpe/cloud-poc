@@ -8,11 +8,19 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TradeEvent {
 
+    private TradeIdentifier tradeIdentifier;
     private String eventType;
     private String eventSubType;
-    private TradeIdentifier tradeIdentifier;
     private LocalDateTime executionTimestamp;
     private List<TradeLeg> legs;
+
+    public TradeIdentifier getTradeIdentifier() {
+        return tradeIdentifier;
+    }
+
+    public void setTradeIdentifier(TradeIdentifier tradeIdentifier) {
+        this.tradeIdentifier = tradeIdentifier;
+    }
 
     public String getEventType() {
         return eventType;
@@ -28,14 +36,6 @@ public class TradeEvent {
 
     public void setEventSubType(String eventSubType) {
         this.eventSubType = eventSubType;
-    }
-
-    public TradeIdentifier getTradeIdentifier() {
-        return tradeIdentifier;
-    }
-
-    public void setTradeIdentifier(TradeIdentifier tradeIdentifier) {
-        this.tradeIdentifier = tradeIdentifier;
     }
 
     public LocalDateTime getExecutionTimestamp() {
@@ -57,9 +57,9 @@ public class TradeEvent {
     @Override
     public String toString() {
         return "TradeEvent{" +
-                "eventType='" + eventType + '\'' +
+                "tradeIdentifier=" + tradeIdentifier +
+                ", eventType='" + eventType + '\'' +
                 ", eventSubType='" + eventSubType + '\'' +
-                ", tradeIdentifier=" + tradeIdentifier +
                 ", executionTimestamp=" + executionTimestamp +
                 ", legs=" + legs +
                 '}';

@@ -57,7 +57,6 @@ public class ClientPactConsumerTest {
         Client client = new ObjectMapper().readValue(response.getBody(), Client.class);
         assertThat(client.getName()).isEqualTo("MyName");
         assertThat(client.getLocation()).isEqualTo("London");
-        assertThat(client.getSecretCode()).isEqualTo("MySecretCode");
     }
 
     private String readContentsOf(String aFileName) throws IOException {

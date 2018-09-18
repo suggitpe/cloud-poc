@@ -1,0 +1,10 @@
+{
+  "tradeIdentifier": {
+    "id": "1",
+    "domain": "testDomain",
+    "version": 1
+  },
+  "eventType": "New",
+  "eventSubType": "New",
+  "executionTimestamp": "2018-09-18T07:50:09.073"
+}

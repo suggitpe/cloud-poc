@@ -1,0 +1,57 @@
+{
+    "provider": {
+        "name": "tradeevent_provider"
+    },
+    "consumer": {
+        "name": "othertradeevent_consumer"
+    },
+    "interactions": [
+        {
+            "description": "Request for a client with an ID of 1",
+            "request": {
+                "method": "GET",
+                "path": "/tradeEvent",
+                "query": {
+                    "id": [
+                        "1"
+                    ],
+                    "domain": [
+                        "testDomain"
+                    ],
+                    "version": [
+                        "1"
+                    ]
+                }
+            },
+            "response": {
+                "status": 200,
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "body": {
+                    "tradeIdentifier": {
+                        "id": "1",
+                        "domain": "testDomain",
+                        "version": 1
+                    },
+                    "eventType": "New",
+                    "eventSubType": "New",
+                    "executionTimestamp": "2018-09-18T07:50:09.073"
+                }
+            },
+            "providerStates": [
+                {
+                    "name": "Trade with ID:1 exists"
+                }
+            ]
+        }
+    ],
+    "metadata": {
+        "pactSpecification": {
+            "version": "3.0.0"
+        },
+        "pact-jvm": {
+            "version": "3.5.19"
+        }
+    }
+}

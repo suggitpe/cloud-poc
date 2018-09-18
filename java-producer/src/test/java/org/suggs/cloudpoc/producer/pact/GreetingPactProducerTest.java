@@ -34,7 +34,7 @@ public class GreetingPactProducerTest {
 
     @State("test GET")
     public void toGetState() {
-        LOG.info("--------------------------------");
+        LOG.info("We do not need to do anything to get to this state");
     }
 
 }

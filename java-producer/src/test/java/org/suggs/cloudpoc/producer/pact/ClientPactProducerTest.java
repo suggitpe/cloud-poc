@@ -34,6 +34,6 @@ public class ClientPactProducerTest {
 
     @State("Client with ID:1 exists")
     public void createClientForID() {
-        LOG.info("-----------------------------------------");
+        LOG.info("pretending to create a client with ID of 1 in the service");
     }
 }

@@ -32,8 +32,8 @@ public class TradePactProducerTest {
         application = SpringApplication.run(Producer.class);
     }
 
-    @State("toto")
+    @State("Trade with ID:1 exists")
     public void toGetState(){
-        LOG.info("-----------------------------------------");
+        LOG.info("pretending to create a trade with iID of 1 in the service");
     }
 }

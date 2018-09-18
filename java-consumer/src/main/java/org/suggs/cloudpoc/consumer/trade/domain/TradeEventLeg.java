@@ -1,9 +1,9 @@
-package org.suggs.cloudpoc.consumer.trade;
+package org.suggs.cloudpoc.consumer.trade.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class TradeLeg {
+public class TradeEventLeg {
 
     private String legRole;
     private String currency;
@@ -35,7 +35,7 @@ public class TradeLeg {
 
     @Override
     public String toString() {
-        return "TradeLeg{" +
+        return "TradeEventLeg{" +
                 "legRole='" + legRole + '\'' +
                 ", currency='" + currency + '\'' +
                 ", amount=" + amount +

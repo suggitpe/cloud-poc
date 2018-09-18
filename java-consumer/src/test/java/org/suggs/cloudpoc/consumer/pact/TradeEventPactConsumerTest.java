@@ -7,7 +7,6 @@ import au.com.dius.pact.consumer.dsl.PactDslWithProvider;
 import au.com.dius.pact.model.RequestResponsePact;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.io.Resources;
-import io.restassured.mapper.factory.Jackson2ObjectMapperFactory;
 import org.junit.Rule;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -15,7 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.web.client.RestTemplate;
-import org.suggs.cloudpoc.consumer.trade.TradeEvent;
+import org.suggs.cloudpoc.consumer.trade.domain.TradeEvent;
 
 import java.io.IOException;
 import java.util.HashMap;

@@ -1,14 +1,14 @@
-package org.suggs.cloudpoc.producer.trade;
+package org.suggs.cloudpoc.producer.trade.domain;
 
 import java.util.Objects;
 
-public class TradeLeg {
+public class TradeEventLeg {
 
     private final String legRole;
     private final String currency;
     private final long amount;
 
-    public TradeLeg(String legRole, String currency, long amount) {
+    public TradeEventLeg(String legRole, String currency, long amount) {
         this.legRole = legRole;
         this.currency = currency;
         this.amount = amount;
@@ -30,7 +30,7 @@ public class TradeLeg {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TradeLeg tradeLeg = (TradeLeg) o;
+        TradeEventLeg tradeLeg = (TradeEventLeg) o;
         return amount == tradeLeg.amount &&
                 Objects.equals(legRole, tradeLeg.legRole) &&
                 Objects.equals(currency, tradeLeg.currency);
@@ -43,7 +43,7 @@ public class TradeLeg {
 
     @Override
     public String toString() {
-        return "TradeLeg{" +
+        return "TradeEventLeg{" +
                 "legRole='" + legRole + '\'' +
                 ", currency='" + currency + '\'' +
                 ", amount=" + amount +

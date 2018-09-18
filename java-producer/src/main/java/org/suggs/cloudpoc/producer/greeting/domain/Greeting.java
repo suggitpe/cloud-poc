@@ -1,4 +1,4 @@
-package org.suggs.cloudpoc.producer.greeting;
+package org.suggs.cloudpoc.producer.greeting.domain;
 
 public class Greeting {
 

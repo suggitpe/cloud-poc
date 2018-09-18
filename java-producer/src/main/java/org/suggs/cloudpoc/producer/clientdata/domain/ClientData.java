@@ -1,4 +1,4 @@
-package org.suggs.cloudpoc.producer.clientdata;
+package org.suggs.cloudpoc.producer.clientdata.domain;
 
 public class ClientData {
     private final long id;

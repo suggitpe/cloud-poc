@@ -4,6 +4,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.suggs.cloudpoc.producer.clientdata.domain.ClientData;
 
 import java.util.HashMap;
 import java.util.Map;

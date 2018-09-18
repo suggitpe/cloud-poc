@@ -1,6 +1,6 @@
-package org.suggs.cloudpoc.consumer.trade;
+package org.suggs.cloudpoc.consumer.trade.domain;
 
-public class TradeIdentifier {
+public class TradeEventIdentifier {
 
     private String id;
     private String domain;
@@ -32,7 +32,7 @@ public class TradeIdentifier {
 
     @Override
     public String toString() {
-        return "TradeIdentifier{" +
+        return "TradeEventIdentifier{" +
                 "id='" + id + '\'' +
                 ", domain='" + domain + '\'' +
                 ", version=" + version +

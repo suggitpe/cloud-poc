@@ -1,4 +1,4 @@
-package org.suggs.cloudpoc.consumer.trade;
+package org.suggs.cloudpoc.consumer.trade.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -8,16 +8,16 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TradeEvent {
 
-    private TradeIdentifier tradeIdentifier;
+    private TradeEventIdentifier tradeIdentifier;
     private String eventType;
     private LocalDateTime executionTimestamp;
-    private List<TradeLeg> legs;
+    private List<TradeEventLeg> legs;
 
-    public TradeIdentifier getTradeIdentifier() {
+    public TradeEventIdentifier getTradeIdentifier() {
         return tradeIdentifier;
     }
 
-    public void setTradeIdentifier(TradeIdentifier tradeIdentifier) {
+    public void setTradeIdentifier(TradeEventIdentifier tradeIdentifier) {
         this.tradeIdentifier = tradeIdentifier;
     }
 
@@ -37,11 +37,11 @@ public class TradeEvent {
         this.executionTimestamp = executionTimestamp;
     }
 
-    public List<TradeLeg> getLegs() {
+    public List<TradeEventLeg> getLegs() {
         return legs;
     }
 
-    public void setLegs(List<TradeLeg> legs) {
+    public void setLegs(List<TradeEventLeg> legs) {
         this.legs = legs;
     }
 

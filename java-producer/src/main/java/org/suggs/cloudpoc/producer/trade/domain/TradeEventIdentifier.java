@@ -1,14 +1,14 @@
-package org.suggs.cloudpoc.producer.trade;
+package org.suggs.cloudpoc.producer.trade.domain;
 
 import java.util.Objects;
 
-public class TradeIdentifier {
+public class TradeEventIdentifier {
 
     private final String id;
     private final String domain;
     private final long version;
 
-    public TradeIdentifier(String id, String domain, long version) {
+    public TradeEventIdentifier(String id, String domain, long version) {
         this.id = id;
         this.domain = domain;
         this.version = version;
@@ -30,7 +30,7 @@ public class TradeIdentifier {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TradeIdentifier that = (TradeIdentifier) o;
+        TradeEventIdentifier that = (TradeEventIdentifier) o;
         return version == that.version &&
                 Objects.equals(id, that.id) &&
                 Objects.equals(domain, that.domain);
@@ -43,7 +43,7 @@ public class TradeIdentifier {
 
     @Override
     public String toString() {
-        return "TradeIdentifier{" +
+        return "TradeEventIdentifier{" +
                 "id='" + id + '\'' +
                 ", domain='" + domain + '\'' +
                 ", version=" + version +

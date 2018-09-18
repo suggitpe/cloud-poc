@@ -5,6 +5,8 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.suggs.cloudpoc.producer.trade.domain.TradeEvent;
+import org.suggs.cloudpoc.producer.trade.domain.TradeEventIdentifier;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
@@ -12,13 +14,13 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 @Api("Trade Event Controller")
 public class TradeEventController {
 
-    private TradeRepository tradeRepository = TradeRepository.init();
+    private TradeEventRepository tradeRepository = TradeEventRepository.init();
 
     @ApiOperation(value = "Gets TradeEvents by ID, domain, version")
     @RequestMapping(value = "tradeEvent", method = GET, produces = "application/json")
     public TradeEvent getTradeEventFor(@RequestParam(value = "id") String id,
                                        @RequestParam(value = "domain") String domain,
                                        @RequestParam(value = "version") long version) {
-        return tradeRepository.getTradeBy(new TradeIdentifier(id, domain, version));
+        return tradeRepository.getTradeBy(new TradeEventIdentifier(id, domain, version));
     }
 }

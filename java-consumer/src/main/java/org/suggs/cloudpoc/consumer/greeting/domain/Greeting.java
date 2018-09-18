@@ -1,4 +1,4 @@
-package org.suggs.cloudpoc.consumer.greeting;
+package org.suggs.cloudpoc.consumer.greeting.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

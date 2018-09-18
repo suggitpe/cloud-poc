@@ -49,9 +49,13 @@ public class GreetingPactConsumerTest {
         assertThat(response.getStatusCode().value()).isEqualTo(200);
         assertThat(response.getHeaders().get("Content-Type").contains("application/json")).isTrue();
 
-        Greeting greeting = new ObjectMapper().readValue(response.getBody(), Greeting.class);
+        Greeting greeting = createGretingFromJson(response.getBody());
         assertThat(greeting.getFrom()).isEqualTo("producer");
         assertThat(greeting.getGreeting()).isEqualTo("Hello, World");
+    }
+
+    private Greeting createGretingFromJson(String json) throws IOException {
+        return new ObjectMapper().readValue(json, Greeting.class);
     }
 
     @Test

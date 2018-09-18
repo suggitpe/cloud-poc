@@ -8,6 +8,7 @@ ext {
             eurekaClient              : 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:2.0.0.RELEASE',
             springBootStarterWeb      : "org.springframework.boot:spring-boot-starter-web:$springBootVersion",
             springBootThymeLeafStarter: "org.springframework.boot:spring-boot-starter-thymeleaf:$springBootVersion",
+            jacksonDatatypeJsr310     : 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.6',
 
             swagger                   : 'io.springfox:springfox-swagger2:2.9.2',
             swaggerUI                 : 'io.springfox:springfox-swagger-ui:2.9.2',

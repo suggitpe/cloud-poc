@@ -10,7 +10,6 @@ public class TradeEvent {
 
     private TradeIdentifier tradeIdentifier;
     private String eventType;
-    private String eventSubType;
     private LocalDateTime executionTimestamp;
     private List<TradeLeg> legs;
 
@@ -28,14 +27,6 @@ public class TradeEvent {
 
     public void setEventType(String eventType) {
         this.eventType = eventType;
-    }
-
-    public String getEventSubType() {
-        return eventSubType;
-    }
-
-    public void setEventSubType(String eventSubType) {
-        this.eventSubType = eventSubType;
     }
 
     public LocalDateTime getExecutionTimestamp() {
@@ -59,7 +50,6 @@ public class TradeEvent {
         return "TradeEvent{" +
                 "tradeIdentifier=" + tradeIdentifier +
                 ", eventType='" + eventType + '\'' +
-                ", eventSubType='" + eventSubType + '\'' +
                 ", executionTimestamp=" + executionTimestamp +
                 ", legs=" + legs +
                 '}';

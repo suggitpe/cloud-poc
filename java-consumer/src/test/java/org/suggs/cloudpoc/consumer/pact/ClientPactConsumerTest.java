@@ -32,7 +32,7 @@ public class ClientPactConsumerTest {
 
     @Pact(consumer = "client_consumer")
     public RequestResponsePact createPact(PactDslWithProvider builder) throws IOException {
-        LOG.info("Creating mock response for Pact");
+        LOG.info("Creating mock response for the test using well known client data");
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
 
@@ -48,15 +48,21 @@ public class ClientPactConsumerTest {
     public void checkWeCanProcessTheClientPact() throws IOException {
         HashMap<String, Object> params = new HashMap<>();
         params.put("id", 1);
+        LOG.info("Calling the mock webservice");
         ResponseEntity<String> response = new RestTemplate().getForEntity(mockProvider.getUrl() + "/clientData?id={id}", String.class, params);
 
+        LOG.info("Checking the response from the webservice call");
         assertThat(response.getStatusCode().value()).isEqualTo(200);
-        assertThat(response.getHeaders().get("Content-Type").contains("application/json")).isTrue();
+        assertThat(response.getHeaders().get("Content-Type")).contains("application/json");
 
-        LOG.info("Calling mock webservice to verify the Pact works for us");
-        Client client = new ObjectMapper().readValue(response.getBody(), Client.class);
+        LOG.info("Building the client domain objects from the response");
+        Client client = createClientFromJson(response.getBody());
         assertThat(client.getName()).isEqualTo("MyName");
         assertThat(client.getLocation()).isEqualTo("London");
+    }
+
+    private Client createClientFromJson(String json) throws IOException {
+        return new ObjectMapper().readValue(json, Client.class);
     }
 
     private String readContentsOf(String aFileName) throws IOException {

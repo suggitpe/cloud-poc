@@ -11,6 +11,7 @@ public class TradeEvent {
     private final String eventSubType;
     private final LocalDateTime executionTimestamp;
     private final List<TradeLeg> legs;
+    private final boolean fieldThatNoOneUses = false;
 
     public TradeEvent(String eventType, String eventSubType, TradeIdentifier tradeIdentifier, LocalDateTime executionTimestamp, List<TradeLeg> legs) {
         this.eventType = eventType;
@@ -40,21 +41,8 @@ public class TradeEvent {
         return legs;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        TradeEvent that = (TradeEvent) o;
-        return Objects.equals(tradeIdentifier, that.tradeIdentifier) &&
-                Objects.equals(eventType, that.eventType) &&
-                Objects.equals(eventSubType, that.eventSubType) &&
-                Objects.equals(executionTimestamp, that.executionTimestamp) &&
-                Objects.equals(legs, that.legs);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(tradeIdentifier, eventType, eventSubType, executionTimestamp, legs);
+    public boolean isFieldThatNoOneUses() {
+        return fieldThatNoOneUses;
     }
 
     @Override
@@ -65,6 +53,25 @@ public class TradeEvent {
                 ", eventSubType='" + eventSubType + '\'' +
                 ", executionTimestamp=" + executionTimestamp +
                 ", legs=" + legs +
+                ", fieldThatNoOneUses=" + fieldThatNoOneUses +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TradeEvent that = (TradeEvent) o;
+        return fieldThatNoOneUses == that.fieldThatNoOneUses &&
+                Objects.equals(tradeIdentifier, that.tradeIdentifier) &&
+                Objects.equals(eventType, that.eventType) &&
+                Objects.equals(eventSubType, that.eventSubType) &&
+                Objects.equals(executionTimestamp, that.executionTimestamp) &&
+                Objects.equals(legs, that.legs);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(tradeIdentifier, eventType, eventSubType, executionTimestamp, legs, fieldThatNoOneUses);
     }
 }

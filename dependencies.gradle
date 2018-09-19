@@ -4,10 +4,10 @@ ext {
     serenityVersion = '1.9.31'
 
     libs = [
-            eurekaServer              : 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:2.0.0.RELEASE',
-            eurekaClient              : 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:2.0.0.RELEASE',
-            springBootStarterWeb      : "org.springframework.boot:spring-boot-starter-web:$springBootVersion",
-            springBootThymeLeafStarter: "org.springframework.boot:spring-boot-starter-thymeleaf:$springBootVersion",
+            eurekaServer              : 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:2.0.1.RELEASE',
+            eurekaClient              : 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:2.0.1.RELEASE',
+            springBootStarterWeb      : "org.springframework.boot:spring-boot-starter-web:${springBootVersion}",
+            springBootThymeLeafStarter: "org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}",
             jacksonDatatypeJsr310     : 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.6',
 
             swagger                   : 'io.springfox:springfox-swagger2:2.9.2',
@@ -19,6 +19,9 @@ ext {
             test                      : [
                     junit                      : 'junit:junit:4.12',
                     assertj                    : 'org.assertj:assertj-core:3.10.0',
+
+                    springBootStarterTest      : "org.springframework.boot:spring-boot-starter-test:${springBootVersion}",
+
                     selenium                   : 'org.seleniumhq.selenium:selenium-server:3.13.0',
                     serenityCore               : "net.serenity-bdd:serenity-core:${serenityVersion}",
                     serenityJunit              : "net.serenity-bdd:serenity-junit:${serenityVersion}",

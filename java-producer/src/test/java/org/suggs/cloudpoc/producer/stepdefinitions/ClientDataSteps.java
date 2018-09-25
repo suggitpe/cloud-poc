@@ -6,28 +6,39 @@ import cucumber.api.java.en.When;
 import io.restassured.RestAssured;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.rest.abiities.CallAnApi;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.ContextConfiguration;
 import org.suggs.cloudpoc.producer.dsl.Retrieve;
 import org.suggs.cloudpoc.producer.dsl.TheReply;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
+import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
+@ContextConfiguration
+@SpringBootTest(webEnvironment = RANDOM_PORT)
 public class ClientDataSteps {
 
-    public static final String PRODUCER_URL = "http://localhost:8901";
+    public static final String PRODUCER_URL = "http://localhost:";
     private Actor actor;
+
+    @LocalServerPort
+    //private int localPort = -1;
+    private int localPort = 8901;
 
     @Given("^the Client Service is running$")
     public void the_producer_is_running() {
-        assertThat(RestAssured.get(PRODUCER_URL).statusCode(), is(200));
+        assertThat(localPort, is(not(-1)));
+        assertThat(RestAssured.get(PRODUCER_URL + localPort).statusCode(), is(200));
     }
 
     @When("^(.*) calls the client service for client ref (\\d+)$")
     public void john_calls_the_client_service_for_client_ref(String actorName, int clientRef) {
         actor = Actor.named(actorName);
-        actor.can(CallAnApi.at(PRODUCER_URL));
+        actor.can(CallAnApi.at(PRODUCER_URL + localPort));
         actor.attemptsTo(Retrieve.client(clientRef));
     }
 

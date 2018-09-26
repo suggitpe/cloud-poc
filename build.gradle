@@ -32,15 +32,8 @@ subprojects {
 
     dependencies {
 
-        testCompile libs.test.junit,
-                libs.test.assertj,
-                libs.test.selenium,
-                libs.test.serenityCore,
-                libs.test.serenityJunit,
-                libs.test.serenityScreenplay,
-                libs.test.serenityScreenplayRest,
-                libs.test.serenityCucumber,
-                libs.guava
+        testImplementation libs.test.junit,
+                libs.test.assertj
     }
 
     ext {

@@ -1,7 +1,7 @@
 ext {
 
     springBootVersion = '2.0.3.RELEASE'
-    serenityVersion = '1.9.31'
+    serenityVersion = '1.9.45'
 
     libs = [
             eurekaServer              : 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:2.0.1.RELEASE',
@@ -24,6 +24,7 @@ ext {
 
                     selenium                   : 'org.seleniumhq.selenium:selenium-server:3.13.0',
                     serenityCore               : "net.serenity-bdd:serenity-core:${serenityVersion}",
+                    serenitySpring             : "net.serenity-bdd:serenity-spring:${serenityVersion}",
                     serenityJunit              : "net.serenity-bdd:serenity-junit:${serenityVersion}",
                     serenityScreenplay         : "net.serenity-bdd:serenity-screenplay:${serenityVersion}",
                     serenityScreenplayWebdriver: "net.serenity-bdd:serenity-screenplay-webdriver:${serenityVersion}",

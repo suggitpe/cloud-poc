@@ -8,14 +8,23 @@ bootJar {
 
 dependencies {
 
-    compile libs.springBootStarterWeb,
+    implementation libs.springBootStarterWeb,
             libs.eurekaClient,
             libs.gson,
             libs.swagger,
             libs.swaggerUI
 
-    testCompile libs.test.pactJvmProvider,
-            libs.test.springBootStarterTest
+    testImplementation libs.test.pactJvmProvider,
+            libs.test.springBootStarterTest,
+            libs.test.selenium,
+            libs.test.serenityCore,
+            libs.test.serenityJunit,
+            libs.test.serenityScreenplay,
+            libs.test.serenityScreenplayRest,
+            libs.test.serenityCucumber,
+            libs.guava
 
-    testRuntime project(':discovery-service')
+    testRuntimeOnly libs.test.serenitySpring
+
+    testRuntimeOnly project(':discovery-service')
 }

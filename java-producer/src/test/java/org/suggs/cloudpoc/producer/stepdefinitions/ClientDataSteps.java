@@ -8,7 +8,6 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.rest.abiities.CallAnApi;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.suggs.cloudpoc.producer.dsl.Retrieve;
 import org.suggs.cloudpoc.producer.dsl.TheReply;
@@ -26,8 +25,7 @@ public class ClientDataSteps {
     private Actor actor;
 
     @LocalServerPort
-    //private int localPort = -1;
-    private int localPort = 8901;
+    private int localPort = -1;
 
     @Given("^the Client Service is running$")
     public void the_producer_is_running() {

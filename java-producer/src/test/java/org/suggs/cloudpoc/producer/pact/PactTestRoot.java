@@ -1,33 +1,26 @@
 package org.suggs.cloudpoc.producer.pact;
 
-import au.com.dius.pact.provider.junit.PactRunner;
 import au.com.dius.pact.provider.junit.loader.PactFolder;
 import au.com.dius.pact.provider.junit.target.HttpTarget;
 import au.com.dius.pact.provider.junit.target.Target;
 import au.com.dius.pact.provider.junit.target.TestTarget;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+import au.com.dius.pact.provider.spring.SpringRestPactRunner;
 import org.junit.runner.RunWith;
-import org.springframework.boot.SpringApplication;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.suggs.cloudpoc.producer.Producer;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.web.server.LocalServerPort;
 
-@RunWith(PactRunner.class)
+import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
+
+@RunWith(SpringRestPactRunner.class)
+@SpringBootTest(webEnvironment = RANDOM_PORT)
 @PactFolder("pacts")
 public class PactTestRoot {
 
     @TestTarget
-    public final Target target = new HttpTarget("http", "localhost", 8901, "/");
+    public Target target;
 
-    public static ConfigurableApplicationContext application;
-
-    @BeforeClass
-    public static void startApplication() {
-        application = SpringApplication.run(Producer.class);
-    }
-
-    @AfterClass
-    public static void stopApplication(){
-        application.stop();
+    @LocalServerPort
+    public void setLocalServerPort(int localPort) {
+        target = new HttpTarget("http", "localhost", localPort, "/");
     }
 }

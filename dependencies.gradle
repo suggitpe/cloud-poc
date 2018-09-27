@@ -31,8 +31,9 @@ ext {
                     serenityScreenplayRest     : "net.serenity-bdd:serenity-screenplay-rest:${serenityVersion}",
                     serenityCucumber           : 'net.serenity-bdd:serenity-cucumber:1.9.12',
 
-                    pactJvmConsumer            : 'au.com.dius:pact-jvm-consumer-junit_2.12:3.5.19',
-                    pactJvmProvider            : 'au.com.dius:pact-jvm-provider-junit_2.12:3.5.19'
+                    pactJvmConsumer            : 'au.com.dius:pact-jvm-consumer-junit_2.12:3.5.23',
+                    pactJvmProvider            : 'au.com.dius:pact-jvm-provider-junit_2.12:3.5.23',
+                    pactSpring                 : 'au.com.dius:pact-jvm-provider-spring_2.12:3.5.23'
             ]
     ]
 }

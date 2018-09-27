@@ -15,6 +15,7 @@ dependencies {
             libs.swaggerUI
 
     testImplementation libs.test.pactJvmProvider,
+            libs.test.pactSpring,
             libs.test.springBootStarterTest,
             libs.test.selenium,
             libs.test.serenityCore,

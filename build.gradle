@@ -1,12 +1,10 @@
 allprojects {
-    defaultTasks 'clean', 'build'
-    apply from: "$rootDir/dependencies.gradle"
 
-    group = 'org.suggs.cloudpoc'
+    defaultTasks 'clean', 'build'
 
     buildscript {
         ext {
-            springBootVersion = '2.0.3.RELEASE'
+            springBootVersion = '2.0.5.RELEASE'
             pactVersion = '3.5.18'
         }
         repositories {
@@ -22,6 +20,10 @@ allprojects {
 }
 
 subprojects {
+
+    apply from: "$rootDir/dependencies.gradle"
+
+    group = 'org.suggs.cloudpoc'
 
     repositories {
         jcenter()

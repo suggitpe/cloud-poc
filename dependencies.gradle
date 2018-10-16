@@ -1,6 +1,6 @@
 ext {
 
-    springBootVersion = '2.0.3.RELEASE'
+    springBootVersion = '2.0.5.RELEASE'
     serenityVersion = '1.9.45'
 
     libs = [
@@ -18,7 +18,7 @@ ext {
 
             test                      : [
                     junit                      : 'junit:junit:4.12',
-                    assertj                    : 'org.assertj:assertj-core:3.10.0',
+                    assertj                    : 'org.assertj:assertj-core:3.11.1',
 
                     springBootStarterTest      : "org.springframework.boot:spring-boot-starter-test:${springBootVersion}",
 

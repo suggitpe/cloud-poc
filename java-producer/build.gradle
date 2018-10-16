@@ -6,6 +6,8 @@ bootJar {
     version = '0.0.1'
 }
 
+//test.finalizedBy(aggregator)
+
 dependencies {
 
     implementation libs.springBootStarterWeb,

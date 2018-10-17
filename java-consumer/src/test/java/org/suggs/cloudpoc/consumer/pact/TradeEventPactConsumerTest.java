@@ -41,7 +41,7 @@ public class TradeEventPactConsumerTest {
         headers.put("Content-Type", "application/json");
 
         return builder
-                .given("Trade with ID:1 exists").uponReceiving("Request for a client with an ID of 1")
+                .given("Trade with ID:1 exists").uponReceiving("Request for a deal event with an ID of 1, a domain of testDomain, and a version of 1")
                 .path("/tradeEvent").method("GET").query("id=1&domain=testDomain&version=1")
                 .willRespondWith().status(200).headers(headers).body(createTradeBody())
                 .toPact();
@@ -86,6 +86,7 @@ public class TradeEventPactConsumerTest {
         LOG.info("Building the trade event domain objects from the response");
         TradeEvent tradeEvent = createTradeEventFromJson(response.getBody());
         assertThat(tradeEvent.getEventType()).isEqualTo("New");
+        assertThat(tradeEvent.getLegs()).hasSize(2);
     }
 
     private TradeEvent createTradeEventFromJson(String json) throws IOException {

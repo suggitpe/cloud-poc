@@ -3,10 +3,12 @@ package org.suggs.cloudpoc.consumer.pact;
 import au.com.dius.pact.consumer.Pact;
 import au.com.dius.pact.consumer.PactProviderRuleMk2;
 import au.com.dius.pact.consumer.PactVerification;
+import au.com.dius.pact.consumer.dsl.DslPart;
+import au.com.dius.pact.consumer.dsl.PactDslJsonBody;
 import au.com.dius.pact.consumer.dsl.PactDslWithProvider;
 import au.com.dius.pact.model.RequestResponsePact;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.common.io.Resources;
+import org.apache.commons.lang3.time.DateFormatUtils;
 import org.junit.Rule;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -17,16 +19,17 @@ import org.springframework.web.client.RestTemplate;
 import org.suggs.cloudpoc.consumer.trade.domain.TradeEvent;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.google.common.io.Resources.getResource;
-import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class TradeEventPactConsumerTest {
 
     private static final Logger LOG = LoggerFactory.getLogger(TradeEventPactConsumerTest.class);
+    private static final String DATE_TIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSSSS";
 
     @Rule
     public PactProviderRuleMk2 mockProvider = new PactProviderRuleMk2("tradeevent_provider", this);
@@ -36,11 +39,32 @@ public class TradeEventPactConsumerTest {
         LOG.info("Creating mock response for the test using well known trade event data");
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
+
         return builder
                 .given("Trade with ID:1 exists").uponReceiving("Request for a client with an ID of 1")
                 .path("/tradeEvent").method("GET").query("id=1&domain=testDomain&version=1")
-                .willRespondWith().status(200).headers(headers).body(readContentsOf("trade-1_testDomain_1.json"))
+                .willRespondWith().status(200).headers(headers).body(createTradeBody())
                 .toPact();
+    }
+
+    private PactDslJsonBody createTradeBody() {
+        return new PactDslJsonBody()
+                .object("tradeIdentifier", createTradeIdentifier())
+                .stringValue("eventType", "New")
+                .timestamp("executionTimestamp", DATE_TIME_FORMAT)
+                .minArrayLike("legs", 2)
+                .stringType("legRole")
+                .stringType("currency")
+                .numberType("amount")
+                .closeArray()
+                .asBody();
+    }
+
+    private DslPart createTradeIdentifier() {
+        return new PactDslJsonBody()
+                .id("id", 1L)
+                .stringValue("domain", "testDomain")
+                .numberValue("version", 1);
     }
 
     @Test
@@ -68,9 +92,4 @@ public class TradeEventPactConsumerTest {
         ObjectMapper mapper = Jackson2ObjectMapperBuilder.json().build();
         return mapper.readValue(json, TradeEvent.class);
     }
-
-    private String readContentsOf(String aFileName) throws IOException {
-        return Resources.toString(getResource(aFileName), UTF_8);
-    }
-
 }

@@ -18,9 +18,30 @@
                     "Content-Type": "application/json"
                 },
                 "body": {
-                    "id": 1,
                     "from": "producer",
-                    "greeting": "Hello, World"
+                    "greeting": "Hello, World",
+                    "id": 1234567890
+                },
+                "matchingRules": {
+                    "body": {
+                        "$.id": {
+                            "matchers": [
+                                {
+                                    "match": "type"
+                                }
+                            ],
+                            "combine": "AND"
+                        }
+                    }
+                },
+                "generators": {
+                    "body": {
+                        "$.id": {
+                            "type": "RandomInt",
+                            "min": 0,
+                            "max": 2147483647
+                        }
+                    }
                 }
             },
             "providerStates": [
@@ -35,7 +56,7 @@
             "version": "3.0.0"
         },
         "pact-jvm": {
-            "version": "3.5.19"
+            "version": "3.5.23"
         }
     }
 }

@@ -4,17 +4,17 @@ import java.util.Objects;
 
 public class TradeEventIdentifier {
 
-    private final String id;
+    private final long id;
     private final String domain;
     private final long version;
 
-    public TradeEventIdentifier(String id, String domain, long version) {
+    public TradeEventIdentifier(long id, String domain, long version) {
         this.id = id;
         this.domain = domain;
         this.version = version;
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 

@@ -24,8 +24,20 @@
                 },
                 "body": {
                     "id": 1,
-                    "name": "MyName",
-                    "location": "London"
+                    "location": "London",
+                    "name": "MyName"
+                },
+                "matchingRules": {
+                    "body": {
+                        "$.id": {
+                            "matchers": [
+                                {
+                                    "match": "type"
+                                }
+                            ],
+                            "combine": "AND"
+                        }
+                    }
                 }
             },
             "providerStates": [
@@ -40,7 +52,7 @@
             "version": "3.0.0"
         },
         "pact-jvm": {
-            "version": "3.5.19"
+            "version": "3.5.23"
         }
     }
 }

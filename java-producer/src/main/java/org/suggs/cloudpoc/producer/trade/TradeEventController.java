@@ -18,7 +18,7 @@ public class TradeEventController {
 
     @ApiOperation(value = "Gets TradeEvents by ID, domain, version")
     @RequestMapping(value = "tradeEvent", method = GET, produces = "application/json")
-    public TradeEvent getTradeEventFor(@RequestParam(value = "id") String id,
+    public TradeEvent getTradeEventFor(@RequestParam(value = "id") long id,
                                        @RequestParam(value = "domain") String domain,
                                        @RequestParam(value = "version") long version) {
         return tradeRepository.getTradeBy(new TradeEventIdentifier(id, domain, version));

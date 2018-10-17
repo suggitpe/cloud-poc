@@ -3,10 +3,10 @@ package org.suggs.cloudpoc.consumer.pact;
 import au.com.dius.pact.consumer.Pact;
 import au.com.dius.pact.consumer.PactProviderRuleMk2;
 import au.com.dius.pact.consumer.PactVerification;
+import au.com.dius.pact.consumer.dsl.PactDslJsonBody;
 import au.com.dius.pact.consumer.dsl.PactDslWithProvider;
 import au.com.dius.pact.model.RequestResponsePact;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.common.io.Resources;
 import org.junit.Rule;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -19,8 +19,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.google.common.io.Resources.getResource;
-import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ClientPactConsumerTest {
@@ -39,8 +37,16 @@ public class ClientPactConsumerTest {
         return builder
                 .given("Client with ID:1 exists").uponReceiving("Request for a client with an ID of 1")
                 .path("/clientData").method("GET").query("id=1")
-                .willRespondWith().status(200).headers(headers).body(readContentsOf("client-1.json"))
+                .willRespondWith().status(200).headers(headers).body(createExpectedClientBody())
                 .toPact();
+    }
+
+    private PactDslJsonBody createExpectedClientBody() {
+        return new PactDslJsonBody()
+                .id("id", 1L)
+                .stringValue("name", "MyName")
+                .stringValue("location", "London")
+                .asBody();
     }
 
     @Test
@@ -63,9 +69,5 @@ public class ClientPactConsumerTest {
 
     private Client createClientFromJson(String json) throws IOException {
         return new ObjectMapper().readValue(json, Client.class);
-    }
-
-    private String readContentsOf(String aFileName) throws IOException {
-        return Resources.toString(getResource(aFileName), UTF_8);
     }
 }

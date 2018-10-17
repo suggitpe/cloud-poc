@@ -3,15 +3,15 @@ package org.suggs.cloudpoc.otherconsumer.trade;
 import java.util.Objects;
 
 public class TradeIdentifier {
-    private String id;
+    private long id;
     private String domain;
     private long version;
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 

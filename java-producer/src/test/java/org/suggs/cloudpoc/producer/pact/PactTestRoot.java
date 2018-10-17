@@ -14,7 +14,7 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 @RunWith(SpringRestPactRunner.class)
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 @PactFolder("pacts")
-public class PactTestRoot {
+public abstract class PactTestRoot {
 
     @TestTarget
     public Target target;

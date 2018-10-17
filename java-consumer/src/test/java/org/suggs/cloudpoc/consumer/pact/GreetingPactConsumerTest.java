@@ -3,10 +3,10 @@ package org.suggs.cloudpoc.consumer.pact;
 import au.com.dius.pact.consumer.Pact;
 import au.com.dius.pact.consumer.PactProviderRuleMk2;
 import au.com.dius.pact.consumer.PactVerification;
+import au.com.dius.pact.consumer.dsl.PactDslJsonBody;
 import au.com.dius.pact.consumer.dsl.PactDslWithProvider;
 import au.com.dius.pact.model.RequestResponsePact;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.common.io.Resources;
 import org.junit.Rule;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -19,8 +19,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.google.common.io.Resources.getResource;
-import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class GreetingPactConsumerTest {
@@ -37,8 +35,21 @@ public class GreetingPactConsumerTest {
 
         return builder
                 .given("test GET").uponReceiving("Request for a greeting").path("/greeting").method("GET")
-                .willRespondWith().status(200).headers(headers).body(readContentsOf("greeting.json"))
+                .willRespondWith().status(200).headers(headers).body(createExpectedGreetingBody())
                 .toPact();
+    }
+
+    @Test
+    public void dumpJson(){
+        LOG.info(createExpectedGreetingBody().toString());
+    }
+
+    private PactDslJsonBody createExpectedGreetingBody() {
+        return new PactDslJsonBody()
+                .id()
+                .stringValue("from", "producer")
+                .stringValue("greeting", "Hello, World")
+                .asBody();
     }
 
     @Test
@@ -56,15 +67,6 @@ public class GreetingPactConsumerTest {
 
     private Greeting createGretingFromJson(String json) throws IOException {
         return new ObjectMapper().readValue(json, Greeting.class);
-    }
-
-    @Test
-    public void readsFromTestResources() throws IOException {
-        LOG.debug(readContentsOf("logback-test.xml"));
-    }
-
-    private String readContentsOf(String aFileName) throws IOException {
-        return Resources.toString(getResource(aFileName), UTF_8);
     }
 
 }

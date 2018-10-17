@@ -29,14 +29,14 @@
                     "Content-Type": "application/json"
                 },
                 "body": {
-                    "tradeIdentifier": {
-                        "id": "1",
-                        "domain": "testDomain",
-                        "version": 1
-                    },
-                    "eventType": "New",
                     "eventSubType": "New",
-                    "executionTimestamp": "2018-09-18T07:50:09.073"
+                    "eventType": "New",
+                    "executionTimestamp": "2018-09-18T07:50:09.073",
+                    "tradeIdentifier": {
+                        "domain": "testDomain",
+                        "id": 1,
+                        "version": 1
+                    }
                 }
             },
             "providerStates": [
@@ -51,7 +51,7 @@
             "version": "3.0.0"
         },
         "pact-jvm": {
-            "version": "3.5.19"
+            "version": "3.5.23"
         }
     }
 }

@@ -31,28 +31,28 @@ public class TradeEventRepository {
     }
 
     private static TradeEvent createTradeEvent1() {
-        TradeEventIdentifier id = new TradeEventIdentifier("1", "testDomain", 1);
+        TradeEventIdentifier id = new TradeEventIdentifier(1, "testDomain", 1);
         TradeEventLeg leg1 = new TradeEventLeg("Buyer", "GBP", 12000);
         TradeEventLeg leg2 = new TradeEventLeg("Seller", "USD", 34000);
         return new TradeEvent("New", "New", id, LocalDateTime.parse("2018-09-18T07:50:09.073"), Arrays.asList(leg1, leg2));
     }
 
     private static TradeEvent createTradeEvent2() {
-        TradeEventIdentifier id = new TradeEventIdentifier("1", "testDomain", 2);
+        TradeEventIdentifier id = new TradeEventIdentifier(1, "testDomain", 2);
         TradeEventLeg leg1 = new TradeEventLeg("Buyer", "GBP", 24000);
         TradeEventLeg leg2 = new TradeEventLeg("Seller", "USD", 34000);
         return new TradeEvent("New", "Amend", id, LocalDateTime.parse("2018-09-18T07:50:09.073"), Arrays.asList(leg1, leg2));
     }
 
     private static TradeEvent createTradeEvent3() {
-        TradeEventIdentifier id = new TradeEventIdentifier("2", "testDomain", 6);
+        TradeEventIdentifier id = new TradeEventIdentifier(2, "testDomain", 6);
         TradeEventLeg leg1 = new TradeEventLeg("Buyer", "AUD", 12000);
         TradeEventLeg leg2 = new TradeEventLeg("Seller", "JPY", 34000);
         return new TradeEvent("Termination", "Amend", id, LocalDateTime.parse("2018-09-18T07:50:09.073"), Arrays.asList(leg1, leg2));
     }
 
     private static TradeEvent createTradeEvent4() {
-        TradeEventIdentifier id = new TradeEventIdentifier("3", "testDomain", 45);
+        TradeEventIdentifier id = new TradeEventIdentifier(3, "testDomain", 45);
         TradeEventLeg leg1 = new TradeEventLeg("Buyer", "EUR", 12000);
         TradeEventLeg leg2 = new TradeEventLeg("Seller", "ZLT", 34000);
         return new TradeEvent("Novation", "New", id, LocalDateTime.parse("2018-09-18T07:50:09.073"), Arrays.asList(leg1, leg2));

@@ -8,19 +8,15 @@ import au.com.dius.pact.consumer.dsl.PactDslJsonBody;
 import au.com.dius.pact.consumer.dsl.PactDslWithProvider;
 import au.com.dius.pact.model.RequestResponsePact;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.commons.lang3.time.DateFormatUtils;
+import org.jetbrains.annotations.NotNull;
 import org.junit.Rule;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.web.client.RestTemplate;
 import org.suggs.cloudpoc.consumer.trade.domain.TradeEvent;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,7 +24,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class TradeEventPactConsumerTest {
 
-    private static final Logger LOG = LoggerFactory.getLogger(TradeEventPactConsumerTest.class);
     private static final String DATE_TIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSSSS";
 
     @Rule
@@ -36,15 +31,18 @@ public class TradeEventPactConsumerTest {
 
     @Pact(consumer = "tradeevent_consumer")
     public RequestResponsePact createPact(PactDslWithProvider builder) throws IOException {
-        LOG.info("Creating mock response for the test using well known trade event data");
-        Map<String, String> headers = new HashMap<>();
-        headers.put("Content-Type", "application/json");
-
         return builder
                 .given("Trade with ID:1 exists").uponReceiving("Request for a deal event with an ID of 1, a domain of testDomain, and a version of 1")
                 .path("/tradeEvent").method("GET").query("id=1&domain=testDomain&version=1")
-                .willRespondWith().status(200).headers(headers).body(createTradeBody())
+                .willRespondWith().status(200).headers(createHeaders()).body(createTradeBody())
                 .toPact();
+    }
+
+    @NotNull
+    private Map<String, String> createHeaders() {
+        Map<String, String> headers = new HashMap<>();
+        headers.put("Content-Type", "application/json");
+        return headers;
     }
 
     private PactDslJsonBody createTradeBody() {
@@ -70,23 +68,24 @@ public class TradeEventPactConsumerTest {
     @Test
     @PactVerification()
     public void checkWeCanProcessTheTradeEventPact() throws IOException {
+        ResponseEntity<String> response = retrieveTradeData();
+
+        assertThat(response.getStatusCode().value()).isEqualTo(200);
+        assertThat(response.getHeaders().get("Content-Type")).contains("application/json");
+        assertThat(response.getBody()).as("Response body is expected to be populated").isNotEmpty();
+
+        TradeEvent tradeEvent = createTradeEventFromJson(response.getBody());
+        assertThat(tradeEvent.getEventType()).isEqualTo("New");
+        assertThat(tradeEvent.getLegs()).hasSize(2);
+    }
+
+    private ResponseEntity<String> retrieveTradeData() {
         HashMap<String, Object> params = new HashMap<>();
         params.put("id", 1);
         params.put("domain", "testDomain");
         params.put("version", 1);
 
-        LOG.info("Calling the mock webservice");
-        ResponseEntity<String> response = new RestTemplate().getForEntity(mockProvider.getUrl() + "/tradeEvent?id={id}&domain={domain}&version={version}", String.class, params);
-
-        LOG.info("Checking the response from the webservice call");
-        assertThat(response.getStatusCode().value()).isEqualTo(200);
-        assertThat(response.getHeaders().get("Content-Type")).contains("application/json");
-        assertThat(response.getBody()).as("Response body is expected to be populated").isNotEmpty();
-
-        LOG.info("Building the trade event domain objects from the response");
-        TradeEvent tradeEvent = createTradeEventFromJson(response.getBody());
-        assertThat(tradeEvent.getEventType()).isEqualTo("New");
-        assertThat(tradeEvent.getLegs()).hasSize(2);
+        return new RestTemplate().getForEntity(mockProvider.getUrl() + "/tradeEvent?id={id}&domain={domain}&version={version}", String.class, params);
     }
 
     private TradeEvent createTradeEventFromJson(String json) throws IOException {

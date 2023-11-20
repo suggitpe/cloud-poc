@@ -2,11 +2,11 @@ ext {
 
     springBootVersion = '2.0.9.RELEASE'
     serenityVersion = '2.0.90'
-    pactVersion = '4.0.0'
+    pactVersion = '3.6.15'
 
     gradlePlugins = [
             springBoot: "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}",
-            pact: "au.com.dius:pact-jvm-provider-gradle:${pactVersion}",
+            pact: "au.com.dius:pact-jvm-provider-gradle_2.12:${pactVersion}",
             serenity: "net.serenity-bdd:serenity-gradle-plugin:${serenityVersion}"
     ]
 
@@ -40,9 +40,9 @@ ext {
                     serenityScreenplayRest     : "net.serenity-bdd:serenity-screenplay-rest:${serenityVersion}",
                     serenityCucumber           : 'net.serenity-bdd:serenity-cucumber:1.9.12',
 
-                    pactJvmConsumer            : "au.com.dius:pact-jvm-consumer-junit:${pactVersion}",
-                    pactJvmProvider            : "au.com.dius:pact-jvm-provider-junit:${pactVersion}",
-                    pactSpring                 : "au.com.dius:pact-jvm-provider-spring:${pactVersion}"
+                    pactJvmConsumer            : "au.com.dius:pact-jvm-consumer-junit_2.12:${pactVersion}",
+                    pactJvmProvider            : "au.com.dius:pact-jvm-provider-junit_2.12:${pactVersion}",
+                    pactSpring                 : "au.com.dius:pact-jvm-provider-spring_2.12:${pactVersion}"
             ]
     ]
 }

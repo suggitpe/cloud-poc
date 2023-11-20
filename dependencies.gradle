@@ -1,7 +1,7 @@
 ext {
 
     springBootVersion = '2.0.9.RELEASE'
-    serenityVersion = '2.0.70'
+    serenityVersion = '2.0.80'
     pactVersion = '3.5.23'
 
     gradlePlugins = [

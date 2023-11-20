@@ -1,8 +1,0 @@
-{
-    "name": "greeter",
-    "version": "0.0.1",
-    "description": "Simple node app for PCF working day",
-    "dependencies": {
-        "express": "*"
-    }
-}

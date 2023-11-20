@@ -17,7 +17,8 @@ dependencies {
     implementation libs.springBootStarterWeb,
             libs.eurekaClient,
             libs.gson,
-            libs.springDoc
+            libs.springDoc,
+            libs.springBootActuator
 
     testImplementation libs.test.pactJvmProvider,
             libs.test.pactSpring,

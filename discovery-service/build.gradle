@@ -9,5 +9,6 @@ dependencies {
     implementation libs.eurekaServer,
             libs.gson,
             libs.jaxb,
-            libs.jaxbruntime
+            libs.jaxbruntime,
+            "javax.servlet:javax.servlet-api:3.1.0"
 }

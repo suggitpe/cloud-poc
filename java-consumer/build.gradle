@@ -11,7 +11,8 @@ dependencies {
             libs.eurekaClient,
             libs.springBootThymeLeafStarter,
             libs.gson,
-            libs.springDoc
+            libs.springDoc,
+            libs.springBootActuator
 
     testImplementation libs.test.pactJvmConsumer
 }

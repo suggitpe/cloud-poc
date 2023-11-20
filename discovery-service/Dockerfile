@@ -1,4 +1,4 @@
-FROM suggitpe/18.04-orajava8-base
+FROM suggitpe/centos-openjdk-base
 VOLUME /tmp
 VOLUME /target
 ADD build/libs/discovery-service-*.jar app.jar

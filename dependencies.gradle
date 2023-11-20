@@ -1,13 +1,12 @@
 ext {
-
-    springBootVersion = '2.0.9.RELEASE'
+    springBootVersion = '2.1.9.RELEASE'
     serenityVersion = '2.0.90'
     pactVersion = '3.6.15'
 
     gradlePlugins = [
             springBoot: "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}",
-            pact: "au.com.dius:pact-jvm-provider-gradle_2.12:${pactVersion}",
-            serenity: "net.serenity-bdd:serenity-gradle-plugin:${serenityVersion}"
+            pact      : "au.com.dius:pact-jvm-provider-gradle_2.12:${pactVersion}",
+            serenity  : "net.serenity-bdd:serenity-gradle-plugin:${serenityVersion}"
     ]
 
     libs = [
@@ -19,6 +18,8 @@ ext {
 
             swagger                   : 'io.springfox:springfox-swagger2:2.9.2',
             swaggerUI                 : 'io.springfox:springfox-swagger-ui:2.9.2',
+
+            tomcat                    : "org.springframework.boot:spring-boot-starter-tomcat:2.0.7.RELEASE",
 
             gson                      : 'com.google.code.gson:gson:2.10.1', // this is to avoid a NoSuchMethodException
             guava                     : 'com.google.guava:guava:25.1-jre',

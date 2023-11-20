@@ -6,9 +6,13 @@ bootJar {
     archiveVersion = '0.0.1'
 }
 
+ext['tomcat.version'] = '8.0.36'
+
 //test.finalizedBy(aggregator)
 
 dependencies {
+
+    implementation libs.tomcat // need to downgrade tomcat for servlet api ... TODO remove
 
     implementation libs.springBootStarterWeb,
             libs.eurekaClient,

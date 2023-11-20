@@ -7,13 +7,13 @@ bootJar {
 }
 
 dependencies {
-    compile libs.springBootStarterWeb,
+    implementation libs.springBootStarterWeb,
             libs.eurekaClient,
             libs.springBootThymeLeafStarter,
             libs.swagger,
             libs.swaggerUI
 
-    testCompile libs.test.pactJvmConsumer
+    testImplementation libs.test.pactJvmConsumer
 
-    runtime project(':discovery-service')
+    runtimeOnly project(':discovery-service')
 }

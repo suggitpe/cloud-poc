@@ -1,7 +1,14 @@
 ext {
 
-    springBootVersion = '2.0.5.RELEASE'
+    springBootVersion = '2.0.9.RELEASE'
     serenityVersion = '1.9.45'
+    pactVersion = '3.5.23'
+
+    gradlePlugins = [
+            springBoot: "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}",
+            pact: "au.com.dius:pact-jvm-provider-gradle_2.12:${pactVersion}",
+            serenity: "net.serenity-bdd:serenity-gradle-plugin:${serenityVersion}"
+    ]
 
     libs = [
             eurekaServer              : 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:2.0.1.RELEASE',

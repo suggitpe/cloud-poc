@@ -1,15 +1,12 @@
 buildscript {
-    ext {
-        springBootVersion = '2.0.5.RELEASE'
-        pactVersion = '3.5.18'
-    }
+    apply from: "$rootDir/dependencies.gradle"
     repositories {
         mavenCentral()
     }
     dependencies {
-        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}",
-                "au.com.dius:pact-jvm-provider-gradle_2.12:${pactVersion}",
-                "net.serenity-bdd:serenity-gradle-plugin:1.9.31"
+        classpath gradlePlugins.springBoot,
+                gradlePlugins.pact,
+                gradlePlugins.serenity
     }
 }
 
@@ -19,7 +16,6 @@ allprojects {
 
 subprojects {
 
-    apply from: "$rootDir/dependencies.gradle"
 
     group = 'org.suggs.cloudpoc'
 

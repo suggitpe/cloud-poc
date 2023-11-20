@@ -10,8 +10,7 @@ dependencies {
     implementation libs.springBootStarterWeb,
             libs.eurekaClient,
             libs.springBootThymeLeafStarter,
-            libs.swagger,
-            libs.swaggerUI
+            libs.springDoc
 
     testImplementation libs.test.pactJvmConsumer
 

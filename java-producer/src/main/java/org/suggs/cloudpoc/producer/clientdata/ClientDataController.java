@@ -1,6 +1,6 @@
 package org.suggs.cloudpoc.producer.clientdata;
 
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,7 +24,7 @@ public class ClientDataController {
         mapOfClientData.put(3L, new ClientData(3L, "Baz", "shhhh", "New York"));
     }
 
-    @ApiOperation(value = "Gets data about clients by ID")
+    @Operation(summary = "Gets data about clients by ID")
     @RequestMapping(value = "/clientData", method = GET, produces = "application/json")
     public ClientData getClientDataFor(@RequestParam(value = "id") long id) {
         return mapOfClientData.get(id);

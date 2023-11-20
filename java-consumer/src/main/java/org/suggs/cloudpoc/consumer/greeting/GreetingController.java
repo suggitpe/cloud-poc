@@ -1,6 +1,5 @@
 package org.suggs.cloudpoc.consumer.greeting;
 
-import io.swagger.annotations.Api;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,6 @@ import org.springframework.web.client.RestTemplate;
 import org.suggs.cloudpoc.consumer.greeting.domain.Greeting;
 
 @Controller
-@Api("Greeting Controller")
 public class GreetingController {
 
     private static final Logger LOG = LoggerFactory.getLogger(GreetingController.class);

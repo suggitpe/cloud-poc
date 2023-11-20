@@ -11,8 +11,7 @@ dependencies {
             libs.eurekaClient,
             libs.springBootThymeLeafStarter,
             libs.gson,
-            libs.swagger,
-            libs.swaggerUI
+            libs.springDoc
 
     testImplementation libs.test.pactJvmConsumer
 }

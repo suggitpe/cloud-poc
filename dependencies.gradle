@@ -1,5 +1,5 @@
 ext {
-    springBootVersion = '2.1.9.RELEASE'
+    springBootVersion = '2.3.12.RELEASE'
     serenityVersion = '2.0.90'
     pactVersion = '3.6.15'
 

@@ -2,8 +2,8 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'net.serenity-bdd.aggregator'
 
 bootJar {
-    baseName = 'java-producer'
-    version = '0.0.1'
+    archiveBaseName = 'java-producer'
+    archiveVersion = '0.0.1'
 }
 
 //test.finalizedBy(aggregator)

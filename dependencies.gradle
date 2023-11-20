@@ -1,5 +1,5 @@
 ext {
-    springBootVersion = '2.3.12.RELEASE'
+    springBootVersion = '2.5.15'
     serenityVersion = '2.0.90'
     pactVersion = '3.6.15'
 
@@ -10,8 +10,8 @@ ext {
     ]
 
     libs = [
-            eurekaServer              : 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:2.0.1.RELEASE',
-            eurekaClient              : 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:2.0.1.RELEASE',
+            eurekaServer              : 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:3.0.2',
+            eurekaClient              : 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:3.0.2',
             springBootStarterWeb      : "org.springframework.boot:spring-boot-starter-web:${springBootVersion}",
             springBootThymeLeafStarter: "org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}",
             jacksonDatatypeJsr310     : 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.6',

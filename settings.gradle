@@ -1,3 +1,5 @@
+rootProject.name = "Cloud PoC"
+
 include 'discovery-service',
         'java-producer',
         'java-consumer',

@@ -10,7 +10,8 @@ server:
 spring:
   thymeleaf:
     cache: false
-
+  application:
+    name: other-consumer
 #---
 #spring:
 ## when the cloud profile is activated then we need to tell eurek our route

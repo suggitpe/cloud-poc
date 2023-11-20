@@ -10,6 +10,8 @@ server:
 spring:
   thymeleaf:
     cache: false
+  application:
+    name: java-consumer
 
 #---
 #spring:

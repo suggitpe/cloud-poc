@@ -5,6 +5,9 @@ eureka:
       defaultZone: ${vcap.services.discovery-service.credentials.uri:http://localhost:8761}/eureka/
 server:
   port: 8901
+spring:
+  application:
+    name: java-producer
 
 #---
 #spring:

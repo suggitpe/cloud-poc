@@ -1,7 +1,7 @@
 package org.suggs.cloudpoc.producer.dsl;
 
 import net.serenitybdd.screenplay.Question;
-import net.serenitybdd.screenplay.rest.abiities.CallAnApi;
+import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
 
 public class TheReply {
     public static Question<String> content() {

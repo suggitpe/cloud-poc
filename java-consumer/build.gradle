@@ -10,12 +10,9 @@ dependencies {
     implementation libs.springBootStarterWeb,
             libs.eurekaClient,
             libs.springBootThymeLeafStarter,
+            libs.gson,
             libs.swagger,
             libs.swaggerUI
 
-    runtimeOnly libs.jacksonDatatypeJsr310
-
     testImplementation libs.test.pactJvmConsumer
-
-    runtimeOnly project(':discovery-service')
 }

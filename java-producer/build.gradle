@@ -29,5 +29,4 @@ dependencies {
 
     testRuntimeOnly libs.test.serenitySpring
 
-    testRuntimeOnly project(':discovery-service')
 }
